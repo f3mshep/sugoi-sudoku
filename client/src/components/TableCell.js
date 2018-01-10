@@ -1,14 +1,9 @@
 import React from "react";
-import InnerCell from './InnerCell'
+import InnerTableRow from "./InnerTableRow";
 // create a table cell that is 9x9 squares. Each square is a span.
 
 const TableCell = (props) =>{
-  function clueSlicer(lastIndex){
-    props.cellClues.slice
-  }
-  function cellSlicer(lastIndex){
 
-  }
   // const table = <table cellPadding="0" cellSpacing="0" border="1">
   //   <tbody>
   //     {props.cell.map((row,indxI) =>
@@ -31,13 +26,13 @@ const TableCell = (props) =>{
 
 
   // return <td>{table}</td> ;
-  return <table>
-    <tbody>
-      <InnerTableRow />
-      <InnerTableRow />
-      <InnerTableRow />
-    </tbody>
-  </table>;
+  return <table cellPadding="0" cellSpacing="0" border="1">
+      <tbody>
+        <InnerTableRow row={props.cell[0]} clues={props.cellClues[0]} />
+        <InnerTableRow row={props.cell[1]} clues={props.cellClues[1]} />
+        <InnerTableRow row={props.cell[2]} clues={props.cellClues[2]} />
+      </tbody>
+    </table>;
 }
 
 export default TableCell
