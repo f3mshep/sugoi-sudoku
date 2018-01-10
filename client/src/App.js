@@ -22,10 +22,12 @@ class App extends Component {
 
 
   render() {
-    return <div>
-    <TableRow location={TOP} />
-    <TableRow location={MID} />
-    <TableRow location={BOT} />
+    return <div className="sudoku-grid">
+        <table>
+          <TableRow location={TOP} row={stubBoard.slice(0,2)} />
+          <TableRow location={MID} row={stubBoard.slice(3,5)} />
+          <TableRow location={BOT} row={stubBoard.slice(6)} />
+        </table>
     </div>;
   }
 }
