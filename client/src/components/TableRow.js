@@ -4,7 +4,9 @@ import TableCell from './TableCell'
   //pass individual cell as props to each table cell, along with location
 
   function rowSlice(rows, lastIndex){
+
     return rows.map(row =>{
+
       let initialIndex = lastIndex - 3
       return row.slice(initialIndex, lastIndex)
     })
