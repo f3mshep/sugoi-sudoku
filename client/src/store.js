@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { routerMiddleware } from 'react-route-redux'
+// import { routerMiddleware } from 'react-route-redux'
 import rootReducer from './reducers/index'
 import thunk from 'redux-thunk'
 
