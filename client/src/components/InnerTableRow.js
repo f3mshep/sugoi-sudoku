@@ -4,9 +4,21 @@ import CellLogic from '../containers/CellLogic'
 const InnerTableRow = (props) =>{
 
   return <tr className="">
-      <CellLogic coordinates={{ x: props.coordinates.x, y: props.coordinates.y }} square={props.row[0]} clue={props.clues[0]} />
-      <CellLogic coordinates={{ x: props.coordinates.x * 2, y: props.coordinates.y }} square={props.row[1]} clue={props.clues[1]} />
-      <CellLogic coordinates={{ x: props.coordinates.x * 3, y: props.coordinates.y }} square={props.row[2]} clue={props.clues[2]} />
+      <CellLogic
+        bigTable={props.bigTable}
+        littleTable={{ x: 1, y: props.littleTable.y }}
+        square={props.row[0]}
+        clue={props.clues[0]} />
+      <CellLogic
+        bigTable={props.bigTable}
+        littleTable={{ x: 2, y: props.littleTable.y }}
+        square={props.row[1]}
+        clue={props.clues[1]} />
+      <CellLogic
+        bigTable={props.bigTable}
+        littleTable={{ x: 3, y: props.littleTable.y }}
+        square={props.row[2]}
+        clue={props.clues[2]} />
     </tr>;
 }
 

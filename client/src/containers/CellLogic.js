@@ -29,6 +29,7 @@ class CellLogic extends React.Component{
   }
 
   handleClick(event){
+
     console.log(this.props.coordinates.x, this.props.coordinates.y)
   }
 

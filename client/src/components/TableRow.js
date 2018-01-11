@@ -13,9 +13,9 @@ import TableCell from './TableCell'
 
 function TableRow(props){
   return <tr>
-      <TableCell coordinates={{ x: 1, y: props.coordinates.y }} cell={rowSlice(props.row, 3)} cellClues={rowSlice(props.clues, 3)} />
-      <TableCell coordinates={{ x: 2, y: props.coordinates.y }} cell={rowSlice(props.row, 6)} cellClues={rowSlice(props.clues, 6)} />
-      <TableCell coordinates={{ x: 3, y: props.coordinates.y }} cell={rowSlice(props.row, 9)} cellClues={rowSlice(props.clues, 9)} />
+      <TableCell bigTable={{ x: 1, y: props.coordinates.y }} cell={rowSlice(props.row, 3)} cellClues={rowSlice(props.clues, 3)} />
+      <TableCell bigTable={{ x: 2, y: props.coordinates.y }} cell={rowSlice(props.row, 6)} cellClues={rowSlice(props.clues, 6)} />
+      <TableCell bigTable={{ x: 3, y: props.coordinates.y }} cell={rowSlice(props.row, 9)} cellClues={rowSlice(props.clues, 9)} />
     </tr>;
 }
 

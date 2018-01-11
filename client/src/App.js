@@ -5,13 +5,6 @@ import { bindActionCreators } from "redux";
 import * as actions from './actions/thunkage'
 import OverlayClick from "./components/InputPopover";
 
-
-
-const TOP=1
-const MID=2
-const BOT=3
-
-
 class App extends Component {
 
   componentDidMount(){
