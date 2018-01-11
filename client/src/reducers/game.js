@@ -8,7 +8,7 @@ const EMPTY_BOARD =   [[0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
-export default function gameReducer(state={loading: false, input: false, game: {id: null, initial_board: EMPTY_BOARD, current_board: EMPTY_BOARD}}, action){
+export default function gameReducer(state={loading: false, showInput: false, game: {id: null, initial_board: EMPTY_BOARD, current_board: EMPTY_BOARD}}, action){
   switch (action.type){
     case 'LOADING_GAME':
       return Object.assign({}, state, {loading: true})

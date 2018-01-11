@@ -13,9 +13,9 @@ import TableCell from './TableCell'
 
 function TableRow(props){
   return <tr>
-      <TableCell location={`left-${props.location}`} cell={rowSlice(props.row, 3)} cellClues={rowSlice(props.clues, 3)} />
-      <TableCell location={`mid-${props.location}`} cell={rowSlice(props.row, 6)} cellClues={rowSlice(props.clues, 6)} />
-      <TableCell location={`right-${props.location}`} cell={rowSlice(props.row, 9)} cellClues={rowSlice(props.clues, 9)} />
+      <TableCell coordinates={{ x: 1, y: props.coordinates.y }} cell={rowSlice(props.row, 3)} cellClues={rowSlice(props.clues, 3)} />
+      <TableCell coordinates={{ x: 2, y: props.coordinates.y }} cell={rowSlice(props.row, 6)} cellClues={rowSlice(props.clues, 6)} />
+      <TableCell coordinates={{ x: 3, y: props.coordinates.y }} cell={rowSlice(props.row, 9)} cellClues={rowSlice(props.clues, 9)} />
     </tr>;
 }
 

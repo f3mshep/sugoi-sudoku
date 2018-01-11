@@ -27,14 +27,14 @@ const TableCell = (props) =>{
 
   // return <td>{table}</td> ;
   return <td>
-    <table className="sudoku-grid" cellPadding="0" cellSpacing="0">
-      <tbody>
-        <InnerTableRow row={props.cell[0]} clues={props.cellClues[0]} />
-        <InnerTableRow row={props.cell[1]} clues={props.cellClues[1]} />
-        <InnerTableRow row={props.cell[2]} clues={props.cellClues[2]} />
-      </tbody>
-    </table>
-  </td>;
+      <table className="sudoku-grid" cellPadding="0" cellSpacing="0">
+        <tbody>
+          <InnerTableRow coordinates={{ x: props.coordinates.x, y: props.coordinates.y }} row={props.cell[0]} clues={props.cellClues[0]} />
+          <InnerTableRow coordinates={{ x: props.coordinates.x, y: props.coordinates.y * 2 }} row={props.cell[1]} clues={props.cellClues[1]} />
+          <InnerTableRow coordinates={{ x: props.coordinates.x, y: props.coordinates.y * 3 }} row={props.cell[2]} clues={props.cellClues[2]} />
+        </tbody>
+      </table>
+    </td>;
 }
 
 export default TableCell

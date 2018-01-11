@@ -1,5 +1,5 @@
 import React from 'react'
-import InputPopover from './InputPopover'
+import CellLogic from '../containers/CellLogic'
 
 const InnerCell = (props) => {
   if(props.clue){
@@ -10,9 +10,10 @@ const InnerCell = (props) => {
       </td>;
   }
   else if (props.square) {
-    return <td className="cell clicky">
-        <span>{props.square}</span>
-      </td>;
+    <CellLogic square={props.square} coordinates={props.coordinates} />
+    // return <td className="cell clicky">
+    //     <span>{props.square}</span>
+    //   </td>;
   }
   else{
     return <td className="cell clicky empty">

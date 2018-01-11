@@ -1,20 +1,34 @@
 import React from 'react'
+import 'BindActionCreators'
 
 class CellLogic extends React.Component{
 
   constructor(props){
     super(props)
+    this.state = {
+      square: '  '
+    }
   }
 
+  handleClick(event){
 
+  }
+
+  handleInput(event){
+
+  }
+
+  render(){
+    return null;
+  }
 
 
 
 }
 
 function mapStateToProps(state) {
-  return { game: state.game.game,
-
+  return {
+    showInput: state.showInput
   };
 }
 

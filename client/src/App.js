@@ -18,14 +18,18 @@ class App extends Component {
     this.props.actions.fetchGame('easy')
   }
 
+  changeValue(event){
+    debugger
+  }
+
   render() {
     return <div className="container boop">
         <div className="row justify-content-center h-100">
           <table className="sudoku-grid my-auto">
             <tbody>
-              <TableRow location={TOP} clues={this.props.game.initial_board.slice(0, 3)} row={this.props.game.current_board.slice(0, 3)} />
-              <TableRow location={MID} clues={this.props.game.initial_board.slice(3, 6)} row={this.props.game.current_board.slice(3, 6)} />
-              <TableRow location={BOT} clues={this.props.game.initial_board.slice(6)} row={this.props.game.current_board.slice(6)} />
+              <TableRow coordinates={{x:null, y:1}} clues={this.props.game.initial_board.slice(0, 3)} row={this.props.game.current_board.slice(0, 3)} />
+              <TableRow coordinates={{x:null, y:2}} clues={this.props.game.initial_board.slice(3, 6)} row={this.props.game.current_board.slice(3, 6)} />
+              <TableRow coordinates={{x:null, y:3}} clues={this.props.game.initial_board.slice(6)} row={this.props.game.current_board.slice(6)} />
             </tbody>
           </table>
         </div>
