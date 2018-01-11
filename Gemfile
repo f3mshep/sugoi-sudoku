@@ -12,7 +12,7 @@ gem 'rails', '~> 5.1.4'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
-
+gem 'pry'
 gem 'active_model_serializers'
 #actual best serializer ever
 gem 'foreman', '~> 0.82.0'

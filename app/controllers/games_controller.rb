@@ -1,13 +1,12 @@
-class GameController < ApplicationController
+class GamesController < ApplicationController
 
   def new
-    #handles a new game instance
+    @game = Game.generate_game('easy')
+    render json: @game
+        #handles a new game instance
     #user will click easy, medium, or hard
     #request would look something like  GET api/game/new/medium
     #response will contain a valid board of appropriate difficulty
-    binding.pry
-    @game = Game.generate_game('easy')
-    render json: @game
   end
 
   def create

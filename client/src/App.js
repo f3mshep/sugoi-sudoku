@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import TableRow from './components/TableRow'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from './actions/thunkage'
 
 const initialBoard = [
   [3, 0, 6, 5, 0, 8, 4, 0, 0],
@@ -29,12 +32,14 @@ const TOP=1
 const MID=2
 const BOT=3
 
-
-
 class App extends Component {
 
+  componentDidMount(){
+    this.props.actions.fetchGame()
+  }
 
   render() {
+    debugger
     return <div className="container boop">
           <div className="row justify-content-center h-100">
             <table className="sudoku-grid my-auto">
@@ -49,4 +54,12 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(){
+  return {game: state.game}
+}
+
+function mapDispatchToProps(){
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
