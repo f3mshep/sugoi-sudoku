@@ -3,7 +3,7 @@ import InnerCell from './InnerCell'
 
 const InnerTableRow = (props) =>{
 
-  return <tr>
+  return <tr className="">
       <InnerCell square={props.row[0]} clue={props.clues[0]} />
       <InnerCell square={props.row[1]} clue={props.clues[1]} />
       <InnerCell square={props.row[2]} clue={props.clues[2]} />

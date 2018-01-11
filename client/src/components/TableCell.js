@@ -26,13 +26,15 @@ const TableCell = (props) =>{
 
 
   // return <td>{table}</td> ;
-  return <table cellPadding="0" cellSpacing="0" border="1">
+  return <td>
+    <table className="sudoku-grid" cellPadding="0" cellSpacing="0">
       <tbody>
         <InnerTableRow row={props.cell[0]} clues={props.cellClues[0]} />
         <InnerTableRow row={props.cell[1]} clues={props.cellClues[1]} />
         <InnerTableRow row={props.cell[2]} clues={props.cellClues[2]} />
       </tbody>
-    </table>;
+    </table>
+  </td>;
 }
 
 export default TableCell

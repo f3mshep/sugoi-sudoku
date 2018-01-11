@@ -1,0 +1,5 @@
+table { empty-cells: show; }
+tr td{
+  padding: 0 !important;
+  margin: 0 !important;
+}

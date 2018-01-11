@@ -35,14 +35,16 @@ class App extends Component {
 
 
   render() {
-    return <div className="sudoku-grid">
-        <table cellPadding="0" cellSpacing="0" border="1">
-          <tbody>
-            <TableRow location={TOP} clues={initialBoard.slice(0, 3)} row={userBoard.slice(0, 3)} />
-            <TableRow location={MID} clues={initialBoard.slice(3, 6)} row={userBoard.slice(3, 6)} />
-            <TableRow location={BOT} clues={initialBoard.slice(6)} row={userBoard.slice(6)} />
-          </tbody>
-        </table>
+    return <div className="container boop">
+          <div className="row justify-content-center h-100">
+            <table className="sudoku-grid my-auto">
+              <tbody>
+                <TableRow location={TOP} clues={initialBoard.slice(0, 3)} row={userBoard.slice(0, 3)} />
+                <TableRow location={MID} clues={initialBoard.slice(3, 6)} row={userBoard.slice(3, 6)} />
+                <TableRow location={BOT} clues={initialBoard.slice(6)} row={userBoard.slice(6)} />
+              </tbody>
+            </table>
+          </div>
       </div>;
   }
 }

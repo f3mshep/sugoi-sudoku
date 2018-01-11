@@ -1,0 +1,40 @@
+.sudoku-grid {
+  outline: solid 2px;
+}
+
+
+table {
+  border-collapse: collapse;
+}
+
+.sudoku-grid .cell {
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  margin-top: -1px;
+  margin-left: -1px;
+  border-spacing: 0px;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  text-align: center;
+  border: 1px dashed;
+}
+
+.sudoku-grid .clicky:hover {
+  background-color: #ecf0f1a9
+}
+
+.sudoku-grid .cell.clue {
+  background: #ecf0f1e1;
+  cursor: not-allowed;
+}
+
+.boop {
+  margin-top: 60px;
+}
+
+.sudoku-grid .cell span {
+    color:#2c3e50;
+    font-size:40px;
+    text-align:middle;
+}
