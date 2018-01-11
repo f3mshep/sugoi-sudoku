@@ -1,4 +1,5 @@
 import React from 'react'
+import InputPopover from './InputPopover'
 
 const InnerCell = (props) => {
   if(props.clue){
