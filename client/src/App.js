@@ -35,7 +35,7 @@ const BOT=3
 class App extends Component {
 
   componentDidMount(){
-    this.props.actions.fetchGame()
+    this.props.actions.fetchGame('easy')
   }
 
   render() {
@@ -54,11 +54,11 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(){
-  return {game: state.game}
+function mapStateToProps(state){
+  return {game: state.game.game}
 }
 
-function mapDispatchToProps(){
+function mapDispatchToProps(dispatch){
   return {actions: bindActionCreators(actions, dispatch)}
 }
 
