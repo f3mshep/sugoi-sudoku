@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TableRow from './components/TableRow'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import * as actions from './actions/thunkage'
 import OverlayClick from "./components/InputPopover";
 
