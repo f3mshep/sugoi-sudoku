@@ -5,8 +5,9 @@ class GameController < ApplicationController
     #user will click easy, medium, or hard
     #request would look something like  GET api/game/new/medium
     #response will contain a valid board of appropriate difficulty
-    @game = Game.new
-
+    binding.pry
+    @game = Game.generate_game('easy')
+    render json: @game
   end
 
   def create
