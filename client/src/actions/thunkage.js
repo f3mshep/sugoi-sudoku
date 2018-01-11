@@ -9,7 +9,7 @@ export function fetchGame(level){
       .then(response => response.json())
       .then(game => {
         console.log(game);
-        dispatch({ type: "FETCH_NEW_GAME", payload: game.data.attributes});
+        dispatch({ type: "FETCH_NEW_GAME", payload: game});
       });
   }
 }

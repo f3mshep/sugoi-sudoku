@@ -34,7 +34,7 @@ const BOT=3
 
 class App extends Component {
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.actions.fetchGame('easy')
   }
 
