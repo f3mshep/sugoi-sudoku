@@ -30,18 +30,18 @@ const TableCell = (props) =>{
       <table className="sudoku-grid" cellPadding="0" cellSpacing="0">
         <tbody>
           <InnerTableRow
-            bigTable={this.props.bigTable}
-            littleTable={x:null, y:1}
+            bigTable={props.bigTable}
+            littleTable={{x:null, y:1}}
             row={props.cell[0]}
             clues={props.cellClues[0]} />
           <InnerTableRow
-            bigTable={this.props.bigTable}
-            littleTable={x:null, y:2}
+            bigTable={props.bigTable}
+            littleTable={{x:null, y:2}}
             row={props.cell[1]}
             clues={props.cellClues[1]} />
           <InnerTableRow
-            bigTable={this.props.bigTable}
-            littleTable={x:null, y:3}
+            bigTable={props.bigTable}
+            littleTable={{x:null, y:3}}
             row={props.cell[2]}
             clues={props.cellClues[2]} />
         </tbody>

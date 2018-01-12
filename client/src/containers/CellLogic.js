@@ -4,19 +4,24 @@ import ClueCell from '../components/ClueCell'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-//
-function wherethefuckami(){
-
-}
-
 
 class CellLogic extends React.Component{
 
   constructor(props){
     super(props)
+    this.findindexOutter()
+    this.findindexInner()
     this.state = {
       square: this.props.square
     }
+  }
+
+  findindexOutter(){
+    this.outterIndex = (this.props.bigTable.x - 1) * 3 + this.props.littleTable.x - 1;
+  }
+
+  findindexInner(){
+    this.innerIndex = (this.props.bigTable.y - 1) * 3 + this.props.littleTable.y - 1
   }
 
   setValue(){
@@ -29,8 +34,7 @@ class CellLogic extends React.Component{
   }
 
   handleClick(event){
-
-    console.log(this.props.coordinates.x, this.props.coordinates.y)
+    console.log(this.outterIndex, this.innerIndex)
   }
 
   handleInput(event){
