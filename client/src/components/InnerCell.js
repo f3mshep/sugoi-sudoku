@@ -2,10 +2,10 @@ import React from 'react'
 import InputPopover from "../components/InputPopover";
 
 class InnerCell extends React.Component {
-  //smart component that handles showing input
+  //smart component that handles click detection for input
   constructor(props) {
     super(props);
-    this.state = ({ showInput: false });
+
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
@@ -22,20 +22,15 @@ class InnerCell extends React.Component {
     this.wrapperRef = node;
   }
 
-  handleClick(event) {
-    console.log(this.showInput);
-    this.setState({ showInput: (this.showInput = true) });
-  }
+
 
   handleClickOutside(event) {
     if (
       this.wrapperRef &&
-      this.state.showInput &&
+      this.props.showingInput &&
       !this.wrapperRef.contains(event.target)
     ) {
-      this.setState({
-        showInput: false
-      })
+      this.props.hideInput()
     }
   }
 
@@ -43,10 +38,10 @@ class InnerCell extends React.Component {
     return (
       <td
         ref={this.setWrapperRef}
-        onClick={this.handleClick.bind(this)}
+        onClick={this.props.showInput}
         className="cell clicky"
       >
-        {this.state.showInput ? <InputPopover handleInput={this.props.handleInput} /> : null}
+        {this.props.showingInput ? <InputPopover handleInput={this.props.handleInput} /> : null}
         <span>{this.props.value}</span>
       </td>
     );
