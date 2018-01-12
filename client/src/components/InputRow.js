@@ -10,3 +10,5 @@ const InputRow = (props) => {
   }
   return <tr>{cells}</tr>;
 }
+
+export default InputRow

@@ -6,13 +6,12 @@ import { bindActionCreators } from "redux";
 import * as actions from '../actions/input'
 
 class CellLogic extends React.Component{
-
+  //Smart component that handles logic of what goes inside the square
   constructor(props){
     super(props)
     this.findindexOutter()
     this.findindexInner()
     this.state = {
-      showInput: false,
       square: this.props.square
     }
   }
@@ -34,11 +33,6 @@ class CellLogic extends React.Component{
     }
   }
 
-  handleClick(event){
-    console.log(this.showInput)
-    this.setState({ showInput: this.showInput = true });
-  }
-
   handleInput(event){
     this.props.actions.changeBoard(this.outterIndex, this.innerIndex,
       event.target.value, this.props.game.current_board)
@@ -46,10 +40,10 @@ class CellLogic extends React.Component{
 
   render(){
     let chosenOne = !this.props.clue?
-    <InnerCell handleClick={this.handleClick.bind(this)} showInput={this.state.showInput} value={this.setValue()} />
+    <InnerCell  handleClick={this.handleClick.bind(this)} value={this.setValue()} />
     : <ClueCell value={this.props.clue} />
     //show hidden image popover if showInput = true
-    return chosenOne;
+    return chosenOne
   }
 
 

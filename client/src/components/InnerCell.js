@@ -1,30 +1,54 @@
 import React from 'react'
 import InputPopover from "../components/InputPopover";
 
-const InnerCell = (props) => {
-  // if(props.clue){
-  //   return <td className="clue cell">
-  //       <span>
-  //         {props.clue}
-  //       </span>
-  //     </td>;
-  // }
-  // else if (props.square) {
-  //   <CellLogic square={props.square} coordinates={props.coordinates} />
-  //   return <td className="cell clicky">
-  //       <span>{props.square}</span>
-  //     </td>;
-  // }
-  // else{
-  //   return <td className="cell clicky empty">
-  //       <span>&nbsp;&nbsp;</span>
-  //     </td>;
-  // }
-  debugger
-  return <td onClick={props.handleClick} className="cell clicky">
-      {props.showInput ? <InputPopover/>: null}
-      <span>{props.value}</span>
-  </td>;
+class InnerCell extends React.Component {
+  //smart component that handles showing input
+  constructor(props) {
+    super(props);
+    this.state({ showInput: false });
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClick(event) {
+    console.log(this.showInput);
+    this.setState({ showInput: (this.showInput = true) });
+  }
+
+  handleClickOutside(event) {
+    if (
+      this.wrapperRef &&
+      this.state.showInput &&
+      !this.wrapperRef.contains(event.target)
+    ) {
+      alert("You clicked outside of me!");
+    }
+  }
+
+  render() {
+    return (
+      <td
+        ref={this.setWrapperRef}
+        onClick={this.props.handleClick}
+        className="cell clicky"
+      >
+        {this.state.showInput ? <InputPopover /> : null}
+        <span>{this.props.value}</span>
+      </td>
+    );
+  }
 }
 
 export default InnerCell
