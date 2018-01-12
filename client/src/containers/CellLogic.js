@@ -34,18 +34,19 @@ class CellLogic extends React.Component{
   }
 
   handleClick(event){
-
+    this.props.actions.toggleInput()
   }
 
   handleInput(event){
-
+    this.props.actions.changeBoard(this.outterIndex, this.innerIndex,
+      event.target.value, this.props.game.current_board)
   }
 
   render(){
     let chosenOne = !this.props.clue?
-    <InnerCell handleClick={this.handleClick.bind(this)} value={this.setValue()} />
+    <InnerCell handleClick={this.handleClick.bind(this)} showInput={this.props} value={this.setValue()} />
     : <ClueCell value={this.props.clue} />
-
+    //show hidden image popover if showInput = true
     return chosenOne;
   }
 
@@ -55,6 +56,7 @@ class CellLogic extends React.Component{
 
 function mapStateToProps(state) {
   return {
+    game: state.game.game,
     showInput: state.showInput
   };
 }

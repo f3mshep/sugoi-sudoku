@@ -15,7 +15,7 @@ export default function gameReducer(state={loading: false, showInput: false, gam
     case 'FETCH_NEW_GAME':
       return Object.assign({}, state, {game: action.payload})
     case 'CHANGE_CELL':
-      return state
+      return Object.assign({}, state, {current_board: action.current_board})
     case 'TOGGLE_INPUT':
       return Object.assign({}, state, { showInput: !state.showInput === true });
     default:
