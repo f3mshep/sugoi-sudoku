@@ -2,7 +2,7 @@ import React from "react";
 
 
 const inputPopover = () => (
-    <div className="fade" id="input-popover">
+    <div className="fade in" id="input-popover">
       <div className="row">
         <div className="btn-group">
           <div className="col-xs-4">

@@ -20,9 +20,9 @@ const InnerCell = (props) => {
   //       <span>&nbsp;&nbsp;</span>
   //     </td>;
   // }
-
+  debugger
   return <td onClick={props.handleClick} className="cell clicky">
-      {props.showInput?<InputPopover/> : null}
+      {props.showInput ? <InputPopover/>: null}
       <span>{props.value}</span>
   </td>;
 }
