@@ -13,9 +13,9 @@ export default function gameReducer(state={loading: false, game: {id: null, init
     case 'LOADING_GAME':
       return Object.assign({}, state, {loading: true})
     case 'FETCH_NEW_GAME':
-      return Object.assign({}, state, {game: action.payload})
+      return Object.assign({}, state, {game: action.payload}, {loading: false})
     case 'CHANGE_CELL':
-      return Object.assign({}, state, {current_board: action.current_board})
+      return Object.assign({}, state, {game: Object.assign({}, state.game, {current_board: action.current_board})} )
     default:
       return state
   }

@@ -5,7 +5,7 @@ const InputRow = (props) => {
   let cells = []
   let cellCount = 1
   while (cellCount < 4) {
-    cells.push(<InputCell row={props.row} cell={cellCount}/>)
+    cells.push(<InputCell handleInput={props.handleInput} row={props.row} cell={cellCount} />);
     ++cellCount
   }
   return <tr>{cells}</tr>;

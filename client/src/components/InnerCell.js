@@ -5,7 +5,7 @@ class InnerCell extends React.Component {
   //smart component that handles showing input
   constructor(props) {
     super(props);
-    this.state({ showInput: false });
+    this.state = ({ showInput: false });
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
@@ -33,7 +33,9 @@ class InnerCell extends React.Component {
       this.state.showInput &&
       !this.wrapperRef.contains(event.target)
     ) {
-      alert("You clicked outside of me!");
+      this.setState({
+        showInput: false
+      })
     }
   }
 
@@ -41,10 +43,10 @@ class InnerCell extends React.Component {
     return (
       <td
         ref={this.setWrapperRef}
-        onClick={this.props.handleClick}
+        onClick={this.handleClick.bind(this)}
         className="cell clicky"
       >
-        {this.state.showInput ? <InputPopover /> : null}
+        {this.state.showInput ? <InputPopover handleInput={this.props.handleInput} /> : null}
         <span>{this.props.value}</span>
       </td>
     );
