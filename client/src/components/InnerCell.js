@@ -1,4 +1,5 @@
 import React from 'react'
+import InputPopover from "../components/InputPopover";
 
 const InnerCell = (props) => {
   // if(props.clue){
@@ -19,8 +20,9 @@ const InnerCell = (props) => {
   //       <span>&nbsp;&nbsp;</span>
   //     </td>;
   // }
-
+  debugger
   return <td onClick={props.handleClick} className="cell clicky">
+      <InputPopover/>
       <span>{props.value}</span>
   </td>;
 }

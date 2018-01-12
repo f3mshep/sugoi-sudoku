@@ -3,7 +3,7 @@ import InnerCell from '../components/InnerCell'
 import ClueCell from '../components/ClueCell'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-
+import * as actions from '../actions/input'
 
 class CellLogic extends React.Component{
 
@@ -34,7 +34,7 @@ class CellLogic extends React.Component{
   }
 
   handleClick(event){
-    console.log(this.outterIndex, this.innerIndex)
+
   }
 
   handleInput(event){
@@ -45,6 +45,7 @@ class CellLogic extends React.Component{
     let chosenOne = !this.props.clue?
     <InnerCell handleClick={this.handleClick.bind(this)} value={this.setValue()} />
     : <ClueCell value={this.props.clue} />
+
     return chosenOne;
   }
 
@@ -59,7 +60,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-
+  return { actions: bindActionCreators(actions, dispatch) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CellLogic)

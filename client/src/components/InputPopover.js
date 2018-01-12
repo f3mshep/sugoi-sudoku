@@ -1,11 +1,8 @@
 import React from "react";
-import { OverlayTrigger } from 'react-bootstrap'
-import { Popover } from 'react-bootstrap'
 
 
-const inputPopover = (
-  <Popover>
-    <div id="input-popover">
+const inputPopover = () => (
+    <div className="fade" id="input-popover">
       <div className="row">
         <div className="btn-group">
           <div className="col-xs-4">
@@ -46,19 +43,8 @@ const inputPopover = (
         </div>
       </div>
     </div>
-  </Popover>
 );
 
 
-const OverlayClick = props => (
-  <OverlayTrigger
-    trigger="click"
-    rootClose
-    placement="right"
-    overlay={inputPopover}
-  >
-  </OverlayTrigger>
-);
 
-
-export default OverlayClick
+export default inputPopover

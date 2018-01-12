@@ -3,7 +3,6 @@ import TableRow from './components/TableRow'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from './actions/thunkage'
-import OverlayClick from "./components/InputPopover";
 
 class App extends Component {
 
