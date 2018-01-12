@@ -1,5 +1,5 @@
 import React from "react";
-
+import InputRow from './InputRow'
 
 // const inputPopover = () => (
 //     <div className="fade in" id="input-popover">
@@ -49,12 +49,14 @@ import React from "react";
 // export default inputPopover
 
 
-const inputTable = () =>{
+ const inputTable = () =>{
   let rows = []
   let rowCount = 1
   while (rowCount < 4) {
-    rows.push(<inputRow row={rowCount}/>)
+    rows.push(<InputRow row={rowCount}/>)
     ++rowCount
   }
   return <table><tbody>{rows}</tbody></table>;
 }
+
+export default inputTable
