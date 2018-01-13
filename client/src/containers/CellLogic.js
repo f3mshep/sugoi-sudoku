@@ -45,12 +45,12 @@ class CellLogic extends React.Component {
     }
   }
 
-  handleInput(event) {
-
+  handleInput(event, value) {
+    const newValue = value || event.target.innerHTML
     this.props.actions.changeBoard(
       this.outterIndex,
       this.innerIndex,
-      event.target.innerHTML,
+      newValue,
       this.props.game.current_board
     );
     setTimeout(this.hideInput.bind(this), 10)

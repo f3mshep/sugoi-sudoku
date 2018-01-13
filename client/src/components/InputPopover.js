@@ -56,7 +56,11 @@ import InputRow from './InputRow'
     rows.push(<InputRow handleInput={props.handleInput} row={rowCount} />);
     ++rowCount
   }
-  return <table className="fade in" id="input-popover"><tbody>{rows}</tbody></table>;
+  return <div id="input-table-holder">
+      <table className="fade in" id="input-popover">
+        <tbody>{rows}</tbody>
+      </table>
+    </div>;
 }
 
 export default inputTable

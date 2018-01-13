@@ -1,5 +1,6 @@
 import React from 'react'
 import InputPopover from "../components/InputPopover";
+import CloseButton from "./CloseButton"
 
 class InnerCell extends React.Component {
   //smart component that handles click detection for input
@@ -22,7 +23,9 @@ class InnerCell extends React.Component {
     this.wrapperRef = node;
   }
 
-
+  hasNumber(){
+    return this.props.value > 0
+  }
 
   handleClickOutside(event) {
     if (
@@ -35,16 +38,11 @@ class InnerCell extends React.Component {
   }
 
   render() {
-    return (
-      <td
-        ref={this.setWrapperRef}
-        onClick={this.props.showInput}
-        className="cell clicky"
-      >
+    return <td ref={this.setWrapperRef} onClick={this.props.showInput} className={this.props.showingInput ? "cell" : "cell clicky"}>
         {this.props.showingInput ? <InputPopover handleInput={this.props.handleInput} /> : null}
-        <span>{this.props.value}</span>
-      </td>
-    );
+        {this.hasNumber()? <CloseButton handleInput={this.props.handleInput}/> : null}
+        <span className='span-value'>{this.props.value}</span>
+      </td>;
   }
 }
 
