@@ -16,4 +16,21 @@ class Game < ApplicationRecord
     end
   end
 
+  #logic to handle solving board ----------------------------------------------
+
+  #function that finds the next empty space
+
+  #function that checks if a number is used in current row
+
+  #function that checks if a number is used in current column
+
+  #function that checks if a number is used in current box
+
+  #function that checks if a number can be placed in location based on previous three methods
+
+  #function that ties it all together and attemps to solve the sudoku
+
+
+
+
 end

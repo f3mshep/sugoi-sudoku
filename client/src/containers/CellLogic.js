@@ -7,6 +7,7 @@ import * as actions from '../actions/input'
 
 class CellLogic extends React.Component {
   //Smart component that handles logic of what goes inside the square
+
   constructor(props) {
     super(props);
     this.findindexOutter();
@@ -46,7 +47,7 @@ class CellLogic extends React.Component {
   }
 
   handleInput(event, value) {
-    const newValue = value || event.target.innerHTML
+    const newValue = value || parseInt(event.target.innerHTML)
     this.props.actions.changeBoard(
       this.outterIndex,
       this.innerIndex,
