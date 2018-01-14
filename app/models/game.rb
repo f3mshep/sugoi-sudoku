@@ -16,9 +16,9 @@ class Game < ApplicationRecord
     end
   end
 
-  #logic to handle solving board ----------------------------------------------
+  # logic to handle solving board ----------------------------------------------
 
-  #function that finds the next empty space
+  # function that finds the next empty space
   def find_empty_space(board_matrix)
     board_matrix.each_with_index do |row, i|
       row.each_with_index do |cell, j|
@@ -29,17 +29,42 @@ class Game < ApplicationRecord
   end
 
   #function that checks if a number is used in current row
-  def in_row?(row, number)
+  def in_row?(board_matrix, number, location)
+    #location is an array [i,j], i is outer index, j is inner
+    row = board_matrix[location.first]
     row.include?(number)
   end
   #function that checks if a number is used in current column
-  def in_column?(board_matrix, number)
+  def in_column?(board_matrix, number,location)
+    column = board_matrix.select_with_index do |row, i|
+      row.select_with_index do |cell, j|
+        j if j == location[1]
+      end
+    end
 
+    column.include?(number)
   end
   #function that checks if a number is used in current box
-
+  def in_box?(board_matrix, number, location)
+    3.times do
+      i = 0
+      3.times do
+        j = 0
+        return false if board_matrix[i + location[0]][j + location[1] == number
+        j += 1
+      end
+      i += 1
+    end
+    return true
+  end
   #function that checks if a number can be placed in location based on previous three methods
 
+  def can_place?(board_matrix, number, location)
+    return false if in_row?(board_matrix, number, location)
+    return false if in_column?(board_matrix, number, location)
+    return false if in_box?(board_matrix, number, location)
+    return true
+  end
   #function that ties it all together and attemps to solve the sudoku
 
     #logic:
