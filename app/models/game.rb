@@ -28,7 +28,6 @@ class Game < ApplicationRecord
     false
   end
 
-  #function that checks if a number is used in current row
   def in_row?(board_matrix, number, location)
     #location is an array [i,j], i is outer index, j is inner
     row = board_matrix[location.first]
@@ -36,26 +35,27 @@ class Game < ApplicationRecord
   end
   #function that checks if a number is used in current column
   def in_column?(board_matrix, number,location)
-    column = board_matrix.select_with_index do |row, i|
-      row.select_with_index do |cell, j|
-        j if j == location[1]
+    column = []
+    board_matrix.each_with_index do |row, i|
+      row.each_with_index do |cell, j|
+        column << cell if j == location[1]
       end
     end
-
     column.include?(number)
   end
   #function that checks if a number is used in current box
   def in_box?(board_matrix, number, location)
+    i = 0
+    j = 0
     3.times do
-      i = 0
       3.times do
-        j = 0
-        return false if board_matrix[i + location[0]][j + location[1] == number
+        return true if board_matrix[i + location[0]][j + location[1]] == number
         j += 1
       end
+      j = 0
       i += 1
     end
-    return true
+    return false
   end
   #function that checks if a number can be placed in location based on previous three methods
 
@@ -64,6 +64,23 @@ class Game < ApplicationRecord
     return false if in_column?(board_matrix, number, location)
     return false if in_box?(board_matrix, number, location)
     return true
+  end
+
+  def sudoku_solver(board_matrix)
+    location = find_empty_space(board_matrix)
+    if !location
+      print board_matrix
+      return true
+    end
+    tentative_number = 1
+    9.times do
+      if can_place?(board_matrix, tentative_number, location)
+        tentative_board = board_matrix.dup
+        tentative_board[location[0]][location[1]] = tentative_number
+        return true if sudoku_solver(tentative_board)
+      end
+    end
+    return false
   end
   #function that ties it all together and attemps to solve the sudoku
 
