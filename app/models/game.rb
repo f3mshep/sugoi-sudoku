@@ -19,18 +19,40 @@ class Game < ApplicationRecord
   #logic to handle solving board ----------------------------------------------
 
   #function that finds the next empty space
+  def find_empty_space(board_matrix)
+    board_matrix.each_with_index do |row, i|
+      row.each_with_index do |cell, j|
+        return [i, j] if cell == 0
+      end
+    end
+    false
+  end
 
   #function that checks if a number is used in current row
-
+  def in_row?(row, number)
+    row.include?(number)
+  end
   #function that checks if a number is used in current column
+  def in_column?(board_matrix, number)
 
+  end
   #function that checks if a number is used in current box
 
   #function that checks if a number can be placed in location based on previous three methods
 
   #function that ties it all together and attemps to solve the sudoku
 
+    #logic:
 
+    #keep track of current position
+
+    #find the closest empty cell
+
+    #using the above logic, try to fill in the current position with a valid number
+
+    #RECURSE with updated board, return true if it is able to return true (lol recusion u silly)
+
+    #
 
 
 end
