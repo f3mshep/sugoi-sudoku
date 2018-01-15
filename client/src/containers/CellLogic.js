@@ -7,25 +7,16 @@ import * as actions from '../actions/input'
 
 class CellLogic extends React.Component {
   //Smart component that handles logic of what goes inside the square
-
+  //if component can be changed by a user, it passes information down to
+  //another smart component
   constructor(props) {
     super(props);
     this.findindexOutter();
     this.findindexInner();
     this.state = {
-      showingInput: false,
+      // showingInput: false,
       square: this.props.square
     };
-  }
-
-  hideInput(){
-    console.log('hiding')
-    this.setState({showingInput: false});
-  }
-
-  showInput() {
-    console.log('showing');
-    this.setState({ showingInput: true });
   }
 
   findindexOutter() {
@@ -47,6 +38,8 @@ class CellLogic extends React.Component {
   }
 
   handleInput(event, value) {
+    //new value is an optional argument that can be used to 'manually' set the
+    //value of the cell
     const newValue = value || parseInt(event.target.innerHTML)
     this.props.actions.changeBoard(
       this.outterIndex,
@@ -54,15 +47,11 @@ class CellLogic extends React.Component {
       newValue,
       this.props.game.current_board
     );
-    setTimeout(this.hideInput.bind(this), 10)
   }
 
   render() {
     let chosenOne = !this.props.clue ? (
       <InnerCell
-        showingInput={this.state.showingInput}
-        showInput={this.showInput.bind(this)}
-        hideInput={this.hideInput.bind(this)}
         handleInput={this.handleInput.bind(this)}
         value={this.setValue()}
       />
