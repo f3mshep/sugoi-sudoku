@@ -16,9 +16,9 @@ export function fetchGame(level){
 
 export function saveGame(gamePayload){
   return function(dispatch){
-    dispatch({type: 'SAVING_GAME'})
+    dispatch({ type: "LOADING_GAME" });
     if(gamePayload.id){
-        fetch("/games/" + gamePayload.id, {method: "PUT", body: gamePayload })
+        return fetch("/games/" + gamePayload.id, {method: "PUT", body: gamePayload })
           .then(response => response.json())
           .then(game => {
             console.log(game);
@@ -26,7 +26,7 @@ export function saveGame(gamePayload){
           });
     }
     else{
-      fetch("/games", { method: "POST", body: gamePayload })
+      return fetch("/games", { method: "POST", body: gamePayload })
         .then(response => response.json())
         .then(game => {
           console.log(game);
@@ -37,13 +37,25 @@ export function saveGame(gamePayload){
 }
 
 export function listSavedGames(){
-
+  return function(dispatch){
+    dispatch({ type: "LOADING_GAME" });
+    return fetch("/games")
+    .then(response => response.json())
+    .then(games =>
+      dispatch({type: "LIST_GAMES", payload: games})
+    )
+  }
 }
 
 export function checkGame(){
 
 }
 
-export function loadGame(){
-
+export function loadGame(gameId){
+  return function(dispatch){
+    dispatch({ type: "LOADING_GAME" });
+    return fetch("/games/" + gameId)
+    .then(response => response.json())
+    .then(game => dispatch({type: "LOAD_GAME", payload: game}) )
+  }
 }
