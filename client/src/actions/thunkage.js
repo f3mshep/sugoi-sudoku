@@ -14,3 +14,36 @@ export function fetchGame(level){
   }
 }
 
+export function saveGame(gamePayload){
+  return function(dispatch){
+    dispatch({type: 'SAVING_GAME'})
+    if(gamePayload.id){
+        fetch("/games/" + gamePayload.id, {method: "PUT", body: gamePayload })
+          .then(response => response.json())
+          .then(game => {
+            console.log(game);
+            dispatch({type: "SAVE_GAME", id: game.id});
+          });
+    }
+    else{
+      fetch("/games", { method: "POST", body: gamePayload })
+        .then(response => response.json())
+        .then(game => {
+          console.log(game);
+          dispatch({ type: "SAVE_GAME", id: game.id });
+        });
+    }
+  }
+}
+
+export function listSavedGames(){
+
+}
+
+export function checkGame(){
+
+}
+
+export function loadGame(){
+
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import InnerCell from '../components/InnerCell'
+import InnerCell from './InnerCell'
 import ClueCell from '../components/ClueCell'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";

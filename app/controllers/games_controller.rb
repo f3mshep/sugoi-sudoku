@@ -10,6 +10,8 @@ class GamesController < ApplicationController
   end
 
   def create
+    @game = Game.create
+    binding.pry
     # POST api/game with a JSON payload of the game.
     # response contains an ID
   end
@@ -20,6 +22,7 @@ class GamesController < ApplicationController
 
   def update
     #POST api/game/id with a JSON payload of the game
+    #response contains an ID
   end
 
   def show

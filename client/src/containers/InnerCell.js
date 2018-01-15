@@ -1,6 +1,6 @@
 import React from 'react'
 import InputPopover from "../components/InputPopover";
-import CloseButton from "./CloseButton"
+import CloseButton from "../components/CloseButton"
 
 class InnerCell extends React.Component {
   //smart component that handles user interaction
@@ -47,10 +47,10 @@ class InnerCell extends React.Component {
   handleClickOutside(event) {
     if (
       this.wrapperRef &&
-      this.props.showingInput &&
+      this.state.showingInput &&
       !this.wrapperRef.contains(event.target)
     ) {
-      this.props.hideInput();
+      this.hideInput();
     }
   }
 

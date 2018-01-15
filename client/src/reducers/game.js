@@ -16,6 +16,8 @@ export default function gameReducer(state={loading: false, game: {id: null, init
       return Object.assign({}, state, {game: action.payload}, {loading: false})
     case 'CHANGE_CELL':
       return Object.assign({}, state, {game: Object.assign({}, state.game, {current_board: action.current_board})} )
+    case 'SAVE_GAME':
+      return Object.assign({}, state, {loading: false}, { game: Object.assign({}, state.game, {id: action.id}) });
     default:
       return state
   }
