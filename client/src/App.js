@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import TableRow from './components/TableRow'
+import UserPersistanceControls from './containers/UserPersistanceControls'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as actions from './actions/thunkage'
+import { fetchGame } from './actions/thunkage'
+// import * as actions from './actions/thunkage'
+
 
 class App extends Component {
 
@@ -10,11 +13,8 @@ class App extends Component {
     this.props.actions.fetchGame('easy')
   }
 
-  changeValue(event){
-    debugger
-  }
-
   render() {
+    debugger
     return <div className="container boop">
         <div className="row justify-content-center h-100">
           <table className="sudoku-grid my-auto">
@@ -24,6 +24,9 @@ class App extends Component {
               <TableRow coordinates={{x:null, y:3}} clues={this.props.game.initial_board.slice(6)} row={this.props.game.current_board.slice(6)} />
             </tbody>
           </table>
+        </div>
+        <div className="row justify-content-center">
+          <UserPersistanceControls />
         </div>
       </div>;
   }

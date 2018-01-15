@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  before_action :game_setter, only: [:update, :show]
+
 
   def new
     @game = Game.generate_game('easy')
@@ -21,12 +23,24 @@ class GamesController < ApplicationController
   end
 
   def update
+    binding.pry
     #POST api/game/id with a JSON payload of the game
     #response contains an ID
   end
 
+  def index
+    render json: Game.all
+  end
+
   def show
     #GET api/game/id
+    render json: @game
+  end
+
+  private
+
+  def game_setter
+    @game = Game.find_by(id: params[:id])
   end
 
 end
