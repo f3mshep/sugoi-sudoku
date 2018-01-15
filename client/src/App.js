@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TableRow from './components/TableRow'
-import UserPersistanceControls from './containers/UserPersistanceControls'
+import UserButtons from './containers/UserButtons'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchGame } from './actions/thunkage'
@@ -10,7 +10,7 @@ import { fetchGame } from './actions/thunkage'
 class App extends Component {
 
   componentDidMount(){
-    this.props.actions.fetchGame('easy')
+    this.props.fetchGame('easy')
   }
 
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
           </table>
         </div>
         <div className="row justify-content-center">
-          <UserPersistanceControls />
+          <UserButtons />
         </div>
       </div>;
   }
@@ -37,7 +37,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return {actions: bindActionCreators(actions, dispatch)}
+  return bindActionCreators({ fetchGame }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
