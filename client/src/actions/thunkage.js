@@ -18,15 +18,22 @@ export function saveGame(gamePayload){
   return function(dispatch){
     dispatch({ type: "LOADING_GAME" });
     if(gamePayload.id){
-        return fetch("/games/" + gamePayload.id, {method: "PUT", body: gamePayload })
+        return fetch("/games/" + gamePayload.id, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ game: gamePayload })
+        })
           .then(response => response.json())
           .then(game => {
             console.log(game);
-            dispatch({type: "SAVE_GAME", id: game.id});
+            dispatch({ type: "SAVE_GAME", id: game.id });
           });
     }
     else{
-      return fetch("/games", { method: "POST", body: gamePayload })
+      return fetch("/games", { method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({game: gamePayload})
+       })
         .then(response => response.json())
         .then(game => {
           console.log(game);

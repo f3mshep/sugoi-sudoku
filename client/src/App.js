@@ -25,7 +25,7 @@ class App extends Component {
             </tbody>
           </table>
         </div>
-        <div className="row justify-content-center">
+        <div className="row top-buffer justify-content-center">
           <UserButtons />
         </div>
       </div>;

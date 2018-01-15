@@ -19,7 +19,11 @@ class UserButtons extends React.Component{
   }
 
   render(){
-    return null;
+    return <div class="btn-group" role="group" aria-label="Basic example">
+      <UserButton callback={this.saveGame.bind(this)} value={'Save'}/>
+      <UserButton callback={this.loadGame.bind(this)} value={'Load'}/>
+      <UserButton callback={this.resetGame.bind(this)} value={'Reset'}/>
+    </div>;
   }
 
 }

@@ -13,9 +13,10 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.create
-    binding.pry
-    # POST api/game with a JSON payload of the game.
-    # response contains an ID
+    @game.initial_board = params[:game][:initial_board]
+    @game.current_board = params[:game][:current_board]
+    @game.save
+    render json: @game
   end
 
   def check
@@ -23,7 +24,9 @@ class GamesController < ApplicationController
   end
 
   def update
-    binding.pry
+    @game.:current_board = params[:game][:current_board]
+    @game.save
+    render json: @game
     #POST api/game/id with a JSON payload of the game
     #response contains an ID
   end

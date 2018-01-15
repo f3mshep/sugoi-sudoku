@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserButton = props => {
   return (
-    <div></div>
+    <button onClick={props.callback} class="btn btn-secondary">{props.value}</button>
   );
 };
 

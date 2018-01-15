@@ -41,6 +41,10 @@ table {
 
 /* hacky bootstrap-react fix */
 
+.top-buffer {
+  margin-top:20px;
+}
+
 .fade {
   opacity: 0;
   transition: opacity 0.15s linear;
