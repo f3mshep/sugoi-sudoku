@@ -3,7 +3,7 @@ import InnerCell from './InnerCell'
 import ClueCell from '../components/ClueCell'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as actions from '../actions/input'
+import { changeBoard } from '../actions/input'
 
 class CellLogic extends React.Component {
   //Smart component that handles logic of what goes inside the square
@@ -70,7 +70,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(actions, dispatch) };
+  return { actions: bindActionCreators({changeBoard}, dispatch) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CellLogic)
