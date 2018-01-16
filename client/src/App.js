@@ -14,7 +14,6 @@ class App extends Component {
   }
 
   render() {
-    debugger
     return <div className="container boop">
         <div className="row justify-content-center h-100">
           <table className="sudoku-grid my-auto">

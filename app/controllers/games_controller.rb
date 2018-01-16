@@ -24,7 +24,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    @game.:current_board = params[:game][:current_board]
+    @game.current_board = params[:game][:current_board]
     @game.save
     render json: @game
     #POST api/game/id with a JSON payload of the game

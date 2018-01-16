@@ -14,7 +14,7 @@ export function fetchGame(level){
   }
 }
 
-export function saveGame(gamePayload){
+function saveGame(gamePayload){
   return function(dispatch){
     dispatch({ type: "LOADING_GAME" });
     if(gamePayload.id){
@@ -36,11 +36,21 @@ export function saveGame(gamePayload){
        })
         .then(response => response.json())
         .then(game => {
-          console.log(game);
+          console.log(game)
           dispatch({ type: "SAVE_GAME", id: game.id });
         });
     }
   }
+}
+
+export function saveAndList(gamePayload) {
+  //Dan Abromav is my hero.
+  return function(dispatch) {
+    return Promise.all([
+      dispatch(saveGame(gamePayload)),
+      dispatch(listSavedGames())
+    ]);
+  };
 }
 
 export function listSavedGames(){
@@ -48,9 +58,10 @@ export function listSavedGames(){
     dispatch({ type: "LOADING_GAME" });
     return fetch("/games")
     .then(response => response.json())
-    .then(games =>
+    .then(games =>{
+      console.log('updated list')
       dispatch({type: "LIST_GAMES", payload: games})
-    )
+    })
   }
 }
 

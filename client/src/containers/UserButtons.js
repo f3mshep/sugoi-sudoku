@@ -7,19 +7,23 @@ import UserButton from '../components/UserButton'
 class UserButtons extends React.Component{
 
   saveGame(){
-    this.props.actions.saveGame(this.props.game)
+    this.props.actions.saveAndList(this.props.game)
   }
 
   loadGame(){
-
+    this.props.actions.loadGame(this.props.savedGames.length - 1)
   }
 
   resetGame(){
 
   }
 
+  componentDidMount(){
+    this.props.actions.listSavedGames()
+  }
+
   render(){
-    return <div class="btn-group" role="group" aria-label="Basic example">
+    return <div className="btn-group" role="group" aria-label="Basic example">
       <UserButton callback={this.saveGame.bind(this)} value={'Save'}/>
       <UserButton callback={this.loadGame.bind(this)} value={'Load'}/>
       <UserButton callback={this.resetGame.bind(this)} value={'Reset'}/>
@@ -29,7 +33,7 @@ class UserButtons extends React.Component{
 }
 
 function mapStateToProps(state) {
-  return { game: state.game.game };
+  return { game: state.game.game, savedGames: state.game.savedGames };
 }
 
 function mapDispatchToProps(dispatch) {
