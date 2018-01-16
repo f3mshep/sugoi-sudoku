@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import TableRow from './components/TableRow'
-import UserButtons from './containers/UserButtons'
+import TableRow from '../components/TableRow'
+import UserButtons from '../containers/UserButtons'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchGame } from './actions/thunkage'
+import { fetchGame } from '../actions/thunkage'
 // import * as actions from './actions/thunkage'
 
 
@@ -31,8 +31,11 @@ class Sudoku extends Component {
   }
 }
 
-function mapStateToProps(state){
-  return {game: state.game.game}
+function mapStateToProps(state, ownProps){
+  return {
+    game: state.game.game,
+    difficulty: ownProps.match.params.difficulty
+  }
 }
 
 function mapDispatchToProps(dispatch){
