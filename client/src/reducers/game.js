@@ -9,7 +9,6 @@ const EMPTY_BOARD =   [[0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 export default function gameReducer(state={loading: false, savedGames:[], game: {id: null, initial_board: EMPTY_BOARD, current_board: EMPTY_BOARD}}, action){
-  debugger
   switch (action.type){
     case 'LOADING_GAME':
       return Object.assign({}, state, {loading: true})

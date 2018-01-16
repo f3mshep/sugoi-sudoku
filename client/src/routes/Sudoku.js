@@ -10,7 +10,8 @@ import { fetchGame } from '../actions/thunkage'
 class Sudoku extends Component {
 
   componentDidMount(){
-    this.props.fetchGame('easy')
+    debugger
+    this.props.fetchGame(this.props.difficulty)
   }
 
   render() {

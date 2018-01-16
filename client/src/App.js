@@ -16,7 +16,7 @@ const App = props => (
       <NavBar />
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
-      <Route path="/sudoku" component={Sudoku} />
+      <Route path={`/sudoku/:difficulty`} component={Sudoku} />
     </div>
   </Router>
 );
