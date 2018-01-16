@@ -1,5 +1,5 @@
 import React from 'react'
-import InnerCell from './InnerCell'
+import UserInputCell from './UserInputCell'
 import ClueCell from '../components/ClueCell'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -52,7 +52,7 @@ class CellLogic extends React.Component {
 
   render() {
     let chosenOne = !this.props.clue ? (
-      <InnerCell
+      <UserInputCell
         handleInput={this.handleInput.bind(this)}
         value={this.setValue()}
       />

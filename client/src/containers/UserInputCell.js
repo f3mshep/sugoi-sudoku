@@ -2,7 +2,7 @@ import React from 'react'
 import InputPopover from "../components/InputPopover";
 import CloseButton from "../components/CloseButton"
 
-class InnerCell extends React.Component {
+class UserInputCell extends React.Component {
   //smart component that handles user interaction
   constructor(props) {
     super(props);
@@ -73,4 +73,4 @@ class InnerCell extends React.Component {
   }
 }
 
-export default InnerCell
+export default UserInputCell

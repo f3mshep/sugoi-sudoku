@@ -5,7 +5,6 @@ import * as thunkActions from "../actions/thunkage";
 import * as inputActions from "../actions/input"
 import UserButton from '../components/UserButton'
 
-
 class UserButtons extends React.Component{
 
   saveGame(){
