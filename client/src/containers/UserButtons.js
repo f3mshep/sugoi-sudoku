@@ -20,7 +20,7 @@ class UserButtons extends React.Component{
   }
 
   resetBoard(){
-    this.props.actions.inputActions.resetBoard(this.props.game.initial_board)
+    this.props.actions.inputActions.resetBoard()
   }
 
   componentDidMount(){

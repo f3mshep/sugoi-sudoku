@@ -3,6 +3,6 @@ export function changeBoard(outter, inner, value, board){
   return {type: "UPDATE_BOARD", current_board: board}
 }
 
-export function resetBoard(initial_board){
-  return {type: "UPDATE_BOARD", current_board: initial_board}
+export function resetBoard(){
+  return {type: "RESET_BOARD"}
 }
