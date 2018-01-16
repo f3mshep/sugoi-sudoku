@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
 
   def new
-    @game = Game.generate_game('easy')
+    @game = Game.generate_game(params[:difficulty])
     render json: @game
         #handles a new game instance
     #user will click easy, medium, or hard

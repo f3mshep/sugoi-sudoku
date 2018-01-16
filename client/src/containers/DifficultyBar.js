@@ -1,7 +1,7 @@
 import React from 'react'
 import RadioToggle from '../components/RadioToggle'
 
-const difficulties = ['easy', 'medium', 'hard', 'very hard']
+const difficulties = ['easy', 'medium', 'hard', 'insanity']
 
 class DifficultyBar extends React.Component {
 
@@ -12,9 +12,9 @@ class DifficultyBar extends React.Component {
   difficultyBar() {
     return difficulties.map(difficulty => {
       if (difficulty === this.props.difficulty) {
-        return <RadioToggle value={this.capitalizeFirstLetter(difficulty)} active={true} />
+        return <RadioToggle path={difficulty} value={this.capitalizeFirstLetter(difficulty)} active={true} />
       } else {
-        return <RadioToggle value={this.capitalizeFirstLetter(difficulty)} active={false} />;
+        return <RadioToggle path={difficulty} value={this.capitalizeFirstLetter(difficulty)} active={false} />;
       }
     });
   }
@@ -23,7 +23,7 @@ class DifficultyBar extends React.Component {
     const bar = this.difficultyBar()
     debugger
     return (
-      <div className="btn-group btn-group-toggle" data-toggle="buttons">
+      <div className="btn-group " data-toggle="buttons">
         {bar}
       </div>
     );

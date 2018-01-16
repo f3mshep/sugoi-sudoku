@@ -13,6 +13,9 @@ class Game < ApplicationRecord
     when "hard"
       game = Game.find_by(name:'hard')
       Game.new(initial_board: game.initial_board, current_board: game.initial_board)
+    else
+      game = Game.find_by(name:'easy')
+      Game.new(initial_board: game.initial_board, current_board: game.initial_board)
     end
   end
 
