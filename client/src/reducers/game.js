@@ -14,13 +14,14 @@ export default function gameReducer(state={loading: false, savedGames:[], game: 
       return Object.assign({}, state, {loading: true})
     case 'FETCH_NEW_GAME':
       return Object.assign({}, state, {game: action.payload}, {loading: false})
-    case 'CHANGE_CELL':
+    case 'UPDATE_BOARD':
       return Object.assign({}, state, {game: Object.assign({}, state.game, {current_board: action.current_board}) })
     case 'LIST_GAMES':
       return Object.assign({}, state, {savedGames: action.payload }, { loading: false })
     case 'LOAD_GAME':
       debugger
-      return Object.assign({}, state, {game: Object.assign({}, state.game, {current_board: action.current_board}) })
+      return Object.assign({}, state, {loading: false},
+        {game: Object.assign({}, action.payload) })
     case 'SAVE_GAME':
       return Object.assign({}, state, {loading: false}, { game: Object.assign({}, state.game, {id: action.id}) });
     default:
