@@ -1,11 +1,9 @@
-var cloneDeep = require("clone-deep");
+
 
 export function changeBoard(outter, inner, value, board){
-  let copy = cloneDeep(board)
+  board[outter][inner] = value
   debugger
-  copy[outter][inner] = value
-  debugger
-  return {type: "UPDATE_BOARD", current_board: copy}
+  return {type: "UPDATE_BOARD", current_board: board}
 }
 
 export function resetBoard(){

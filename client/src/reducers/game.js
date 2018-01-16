@@ -16,7 +16,7 @@ export default function gameReducer(state={loading: false, savedGames:[], game: 
     case 'FETCH_NEW_GAME':
       return Object.assign({}, state, {game: action.payload}, {loading: false})
     case 'UPDATE_BOARD':
-      return state
+      return Object.assign({}, state, { game: Object.assign({}, state.game, { current_board: action.current_board }) })
     case 'LIST_GAMES':
       return Object.assign({}, state, {savedGames: action.payload }, { loading: false })
     case 'LOAD_GAME':
