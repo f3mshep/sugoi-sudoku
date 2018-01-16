@@ -21,16 +21,16 @@ table {
 }
 
 .sudoku-grid .clicky:hover {
-  background-color: #ecf0f1a9
+  background-color: #043d4b3a
 }
 
 .sudoku-grid .cell.clue {
-  background: #ecf0f1e1;
+  background: #bfc8cb7b;
   cursor: not-allowed;
 }
 
 .boop {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .sudoku-grid .cell span {
@@ -93,3 +93,20 @@ table {
   display: block!important;
 }
 
+.content-box {
+  padding: 20px;
+  background-color: white;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+body {
+  background-color: #F2F2F2 !important;
+}
+
+.subtle-shadow {
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
