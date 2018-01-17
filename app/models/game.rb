@@ -19,6 +19,47 @@ class Game < ApplicationRecord
     end
   end
 
+  def number_mapper(initial_board)
+    deep_copy = Marshal.load(Marshal.dump(initial_board))
+    key = ("a".."i").to_a
+    encrypted = deep_copy.map do |row|
+      row.map do |cell|
+        if cell < 1
+          'z'
+        else
+          key[cell - 1]
+        end
+      end
+    end
+    shuffled_key = key.shuffle
+    encrypted_numbers = encrypted.map do |row|
+      row.map.with_index do |cell, index|
+        if cell == 'z'
+          0
+        else
+          shuffled_key.index(cell) + 1
+        end
+      end
+    end
+  end
+
+def random_rotation(matrix)
+  d4 = 1 + rand(4)
+  d4.times do
+    deep_copy = Marshal.load(Marshal.dump(matrix))
+    new_copy = deep_copy.dup.transpose.map do |row|
+      row.reverse
+    end
+    matrix = new_copy
+  end
+  matrix
+end
+
+def new_board(matrix)
+  new_matrix = random_rotation(matrix)
+  number_mapper(new_matrix)
+end
+
   # logic to handle solving board ----------------------------------------------
 
   # function that finds the next empty space
