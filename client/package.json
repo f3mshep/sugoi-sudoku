@@ -6,10 +6,12 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta.3",
     "clone-deep": "^2.0.1",
+    "font-awesome": "^4.7.0",
     "lodash.clonedeep": "^4.5.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0",
+    "react-fontawesome": "^1.6.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
