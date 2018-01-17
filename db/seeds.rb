@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Game.create(category: 'easy',
+Game.create(difficulty: 'easy',
 initial_board: [
   [0, 7, 5, 0, 9, 8, 0, 2, 3],
   [3, 0, 0, 1, 0, 7, 0, 5, 0],
@@ -31,7 +31,7 @@ current_board: [
 ],
 )
 
-Game.create(category: 'medium', initial_board:[
+Game.create(difficulty: 'medium', initial_board:[
   [8, 9, 0, 0, 1, 0, 0, 5, 0],
   [0, 0, 0, 0, 0, 9, 6, 7, 0],
   [0, 3, 0, 2, 0, 5, 0, 0, 0],
@@ -53,7 +53,7 @@ Game.create(category: 'medium', initial_board:[
   [0, 7, 0, 0, 2, 0, 0, 1, 4]
 ])
 
-Game.create(category: 'hard', initial_board: [
+Game.create(difficulty: 'hard', initial_board: [
   [0, 0, 0, 0, 0, 0, 0, 8, 0],
   [0, 7, 4, 0, 6, 3, 5, 0, 0],
   [1, 0, 0, 0, 0, 0, 0, 0, 2],

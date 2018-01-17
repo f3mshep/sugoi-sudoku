@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import * as thunkActions from "../actions/thunkage";
 import * as inputActions from "../actions/input"
 import UserButton from '../components/UserButton'
+import LoadButtonContainer from './LoadButtonContainer';
 
 class UserButtons extends React.Component{
 
@@ -29,7 +30,8 @@ class UserButtons extends React.Component{
   render(){
     return <div className="btn-group thicc" role="group" aria-label="Basic example">
       <UserButton callback={this.saveGame.bind(this)} value={'Save'}/>
-      <UserButton callback={this.loadGame.bind(this)} value={'Load'}/>
+      {/* <UserButton callback={this.loadGame.bind(this)} value={'Load'}/> */}
+      <LoadButtonContainer />
       <UserButton callback={this.resetBoard.bind(this)} value={'Reset'}/>
     </div>;
   }

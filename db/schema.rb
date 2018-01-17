@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180111001833) do
     t.text "initial_board"
     t.text "current_board"
     t.text "solution"
-    t.string "category"
+    t.string "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -15,7 +15,7 @@ const Home = () => (
         Clues cannot be moved around or changed. Each cell has only one correct answer.
         It is the player's task to find out what number goes where! </p>
         <br/>
-        <a href="/sudoku/easy" className='btn btn-lg btn-primary'>Let's play Sudoku!</a>
+        <a href="/sudoku/new/easy" className='btn btn-lg btn-primary'>Let's play Sudoku!</a>
       </div>
     </div>
   </div>

@@ -5,13 +5,13 @@ class Game < ApplicationRecord
   def self.generate_game(level)
     case level
     when "easy"
-      game = Game.new(category: 'easy', current_board: EASY_BOARD, initial_board: EASY_BOARD)
+      game = Game.new(difficulty: 'easy', current_board: EASY_BOARD, initial_board: EASY_BOARD)
     when "medium"
-      game = Game.new(category: 'medium', current_board: MEDIUM_BOARD, initial_board: MEDIUM_BOARD)
+      game = Game.new(difficulty: 'medium', current_board: MEDIUM_BOARD, initial_board: MEDIUM_BOARD)
     when "hard"
-      game = Game.new(category: 'hard', current_board: HARD_BOARD, initial_board: HARD_BOARD)
+      game = Game.new(difficulty: 'hard', current_board: HARD_BOARD, initial_board: HARD_BOARD)
     else
-      game = Game.new(category: 'easy', current_board: EASY_BOARD, initial_board: EASY_BOARD)
+      game = Game.new(difficulty: 'easy', current_board: EASY_BOARD, initial_board: EASY_BOARD)
     end
       game.new_state
   end
@@ -22,7 +22,7 @@ class Game < ApplicationRecord
     self.initial_board = new_board.swapped_board
     self.current_board = new_board.swapped_board
     self.solution = self.solve
-    #if performance takes a hit, move solution to another path
+    #if performance takes a hit, move solution to another action, such as check
     self
   end
 
