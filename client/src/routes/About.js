@@ -15,15 +15,21 @@ const About = () => (
           learn a new technology is to build something with it!
         </p>
         <p>
-          Sudoku played to the strengths of React as well as Redux. React allows
+          While there are a million ways to write a sudoku application,
+          I can leverage the strengths of React and Redux to solve the more
+          interesting problems writing a sudoku application presents. React allows
           the creation of a complex UI that "reacts" quickly to user input, due
           to the virtual DOM structure it creates. This is ideal for the sudoku
           board, there are a total of 81 cells that each need to respond to a
-          user's input! Redux allows an application to have a centralized
+          user's input!
+        </p>
+        <p>
+          Redux creates a centralized
           location to store all the data about what is going on in the
           application, known as state. Having a centralized location for the
-          state of the sudoku grid makes it simplier for data persistance, and
-          to make the flow of data easier to understand.
+          state of the sudoku grid makes it simplier to store information
+          about the state of the board, which makes it easier to save, load, and
+          reset the board state.
         </p>
         <h3>Under the hood:</h3>
         <ul>
