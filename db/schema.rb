@@ -18,7 +18,10 @@ ActiveRecord::Schema.define(version: 20180111001833) do
   create_table "games", force: :cascade do |t|
     t.text "initial_board"
     t.text "current_board"
-    t.string "name"
+    t.text "solution"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

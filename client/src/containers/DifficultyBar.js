@@ -21,7 +21,6 @@ class DifficultyBar extends React.Component {
 
   render() {
     const bar = this.difficultyBar()
-    debugger
     return (
       <div className="btn-group " data-toggle="buttons">
         {bar}

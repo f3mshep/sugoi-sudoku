@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Route,
+  Switch,
   Link
 } from 'react-router-dom'
 import NavBar from './components/NavBar'
@@ -13,10 +14,12 @@ import FooterBar from "./components/FooterBar.js";
 const App = props => (
   <div className="app">
     <NavBar />
-    <Route exact path="/" component={Home} />
-    <Route exact path="/about" component={About} />
-    <Route path={`/sudoku/new/:difficulty`} component={Sudoku} />
-    <Route path={`/sudoku/:id`} component={Sudoku} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
+        <Route path={`/sudoku/new/:difficulty`} component={Sudoku} />
+        <Route path={`/sudoku/:id`} component={Sudoku} />
+      </Switch>
     <FooterBar />
   </div>
 );

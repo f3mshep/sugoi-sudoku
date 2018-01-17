@@ -37,6 +37,7 @@ class GamesController < ApplicationController
 
   def show
     #GET api/game/id
+    @game = Game.generate_game('easy') if @game.nil?
     render json: @game
   end
 

@@ -1,7 +1,8 @@
 #Essential
 []Page transition animation
-[]Style user input buttons
-[]Make DB/Store track game difficulty, and track difficulty in difficulty bar - load call the show action
+[x]Style user input buttons
+[ip]Make DB/Store track game difficulty, and track difficulty in difficulty bar - load call the show action
+[]add animation if game is saved
 
 #Do after scheduling assessment
 [x]Create a board flopper and integrate it into the current #generate_game method
@@ -9,6 +10,7 @@
 []Add board_solution to schema
 []update react-redux to work with board_solution
 [x]Organize ruby backend
+[]Make insane path actually give insane
 []Organize CSS
 []Change React app title in title bar
 []Change CSS to make table responsive

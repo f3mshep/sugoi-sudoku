@@ -5,18 +5,15 @@ class Game < ApplicationRecord
   def self.generate_game(level)
     case level
     when "easy"
-      game = Game.find_by(name:'easy')
+      game = Game.new(category: 'easy', current_board: EASY_BOARD, initial_board: EASY_BOARD)
     when "medium"
-      game = Game.find_by(name:'medium')
+      game = Game.new(category: 'medium', current_board: MEDIUM_BOARD, initial_board: MEDIUM_BOARD)
     when "hard"
-      game = Game.find_by(name:'hard')
+      game = Game.new(category: 'hard', current_board: HARD_BOARD, initial_board: HARD_BOARD)
     else
-      game = Game.find_by(name:'easy')
+      game = Game.new(category: 'easy', current_board: EASY_BOARD, initial_board: EASY_BOARD)
     end
-      new_game = Game.new
-      new_game.initial_board = game.initial_board
-      new_game.current_board = game.initial_board
-      new_game.new_state
+      game.new_state
   end
 
   def new_state
@@ -24,12 +21,14 @@ class Game < ApplicationRecord
     new_board = BoardSwap.new(new_board)
     self.initial_board = new_board.swapped_board
     self.current_board = new_board.swapped_board
+    self.solution = self.solve
+    #if performance takes a hit, move solution to another path
     self
   end
 
   def solve
     board_solver = Solver.new(initial_board)
-    board_solver.solution
+    self.solution = board_solver.solution
   end
 
   # logic to handle solving board ----------------------------------------------
@@ -48,6 +47,40 @@ class Game < ApplicationRecord
     #RECURSE with updated board, return true if it is able to return true (lol recusion u silly)
 
     #
+  EASY_BOARD = [
+  [0, 7, 5, 0, 9, 8, 0, 2, 3],
+  [3, 0, 0, 1, 0, 7, 0, 5, 0],
+  [8, 0, 6, 0, 5, 0, 0, 0, 0],
+  [2, 3, 0, 5, 0, 0, 0, 0, 0],
+  [0, 6, 0, 3, 0, 2, 0, 9, 0],
+  [0, 0, 0, 0, 0, 6, 0, 1, 2],
+  [0, 0, 0, 0, 2, 0, 1, 0, 9],
+  [0, 1, 0, 9, 0, 4, 0, 0, 7],
+  [6, 9, 0, 8, 3, 0, 2, 4, 0]
+]
 
+  MEDIUM_BOARD = [
+  [8, 9, 0, 0, 1, 0, 0, 5, 0],
+  [0, 0, 0, 0, 0, 9, 6, 7, 0],
+  [0, 3, 0, 2, 0, 5, 0, 0, 0],
+  [0, 8, 0, 7, 0, 0, 0, 0, 2],
+  [0, 0, 5, 0, 6, 0, 4, 0, 0],
+  [2, 0, 0, 0, 0, 8, 0, 6, 0],
+  [0, 0, 0, 8, 0, 3, 0, 9, 0],
+  [0, 6, 9, 5, 0, 0, 0, 0, 0],
+  [0, 7, 0, 0, 2, 0, 0, 1, 4]
+]
+
+  HARD_BOARD = [
+  [0, 0, 0, 0, 0, 0, 0, 8, 0],
+  [0, 7, 4, 0, 6, 3, 5, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0, 0, 2],
+  [0, 0, 9, 0, 0, 2, 0, 3, 0],
+  [0, 0, 8, 9, 0, 4, 6, 0, 0],
+  [0, 2, 0, 3, 0, 0, 9, 0, 0],
+  [4, 0, 0, 0, 0, 0, 0, 0, 5],
+  [0, 0, 3, 4, 5, 0, 2, 9, 0],
+  [0, 5, 0, 0, 0, 0, 0, 0, 0]
+]
 
 end

@@ -4,6 +4,7 @@ import UserButtons from '../containers/UserButtons'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchGame } from '../actions/thunkage'
+import { loadGame } from '../actions/thunkage'
 import DifficultyBar from '../containers/DifficultyBar'
 // import * as actions from './actions/thunkage'
 
@@ -11,13 +12,19 @@ import DifficultyBar from '../containers/DifficultyBar'
 class Sudoku extends Component {
 
   componentDidMount(){
-    this.props.fetchGame(this.props.difficulty)
+    debugger
+    if(this.props.id){
+      this.props.actions.loadGame(this.props.id)
+    }
+    else{
+      this.props.actions.fetchGame(this.props.difficulty)
+    }
   }
 
   render() {
     return <div className="container boop">
         <div className="row justify-content-center">
-            <DifficultyBar difficulty={this.props.difficulty} />
+            <DifficultyBar />
         </div>
         <div className="row top-buffer justify-content-center h-100">
           <div className="subtle-shadow">
@@ -38,15 +45,22 @@ class Sudoku extends Component {
 }
 
 function mapStateToProps(state, ownProps){
-  debugger
-  return {
-    game: state.game.game,
-    difficulty: ownProps.match.params.difficulty
+  if (ownProps.match.params.id){
+    return { game: state.game.game, id: ownProps.match.params.id };
+  }
+  else{
+    return {
+      game: state.game.game, difficulty: ownProps.match.params.difficulty
+    }
   }
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchGame }, dispatch)
+  return {
+  actions: {
+    loadGame: bindActionCreators(loadGame, dispatch),
+    fetchGame: bindActionCreators( fetchGame , dispatch)}
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sudoku)
