@@ -27,6 +27,11 @@ class Game < ApplicationRecord
     self
   end
 
+  def solve
+    board_solver = Solver.new(initial_board)
+    board_solver.solution
+  end
+
   # logic to handle solving board ----------------------------------------------
 
 
