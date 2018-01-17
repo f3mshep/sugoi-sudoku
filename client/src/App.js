@@ -15,7 +15,8 @@ const App = props => (
     <NavBar />
     <Route exact path="/" component={Home} />
     <Route exact path="/about" component={About} />
-    <Route path={`/sudoku/:difficulty`} component={Sudoku} />
+    <Route path={`/sudoku/new/:difficulty`} component={Sudoku} />
+    <Route path={`/sudoku/:id`} component={Sudoku} />
     <FooterBar />
   </div>
 );

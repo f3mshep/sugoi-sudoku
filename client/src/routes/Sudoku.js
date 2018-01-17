@@ -38,6 +38,7 @@ class Sudoku extends Component {
 }
 
 function mapStateToProps(state, ownProps){
+  debugger
   return {
     game: state.game.game,
     difficulty: ownProps.match.params.difficulty

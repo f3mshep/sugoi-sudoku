@@ -8,7 +8,7 @@ const InputRow = (props) => {
     cells.push(<InputCell handleInput={props.handleInput} row={props.row} cell={cellCount} />);
     ++cellCount
   }
-  return <tr>{cells}</tr>;
+  return <tr className="">{cells}</tr>;
 }
 
 export default InputRow

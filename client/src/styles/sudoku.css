@@ -1,21 +1,41 @@
-.sudoku-grid {
-  outline: solid 2px;
-}
-
-
+/* Global Tag Settings */
 
 table {
   border-collapse: collapse;
 }
+
+body {
+  background-color: #F2F2F2 !important;
+}
+
+
+
+/* Animation */
 
 .fade-enter {
   opacity: 0;
   z-index: 1;
 }
 
+.fade {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+
+.fade.in {
+  opacity: 1;
+  display: block !important;
+}
+
 .fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 250ms ease-in;
+}
+
+/* Sudoku Grid */
+
+.sudoku-grid {
+  outline: solid 2px;
 }
 
 .sudoku-grid .cell {
@@ -64,14 +84,11 @@ table {
   margin-bottom: 10px;
 }
 
-.fade {
-  opacity: 0;
-  transition: opacity 0.15s linear;
-}
 
-.fade.in {
-  opacity: 1;
-  display: block !important;
+
+
+.input-cell:hover {
+  color: rgb(21, 152, 121);
 }
 
 #input-popover tbody{
@@ -83,16 +100,22 @@ table {
   cursor: pointer;
 }
 
+
 #input-popover {
-  background-color: white;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.5s cubic-bezier(.25,.8,.25,1);
+  background-color: #F2F2F2;
+  position: absolute;
   font-weight: bold;
-  font-size: 12px;
-  width: 58px;
-  height: 58px;
+  font-size: 14px;
+  width: 68px;
+  height: 68px;
   table-layout: fixed;
   display: block;
-  position: absolute;
-  z-index: 1060;
+  z-index: 2000;
 }
 
 .span-value{
@@ -121,9 +144,7 @@ table {
   border-radius: 5px;
 }
 
-body {
-  background-color: #F2F2F2 !important;
-}
+
 
 .subtle-shadow {
     border-radius: 2px;
