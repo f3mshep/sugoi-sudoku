@@ -55,10 +55,25 @@ def random_rotation(matrix)
   matrix
 end
 
-def new_board(matrix)
-  new_matrix = random_rotation(matrix)
-  number_mapper(new_matrix)
-end
+  def board_shuffle_rows(matrix)
+    # single row swap must be inside 3x3 grid
+    9.times do
+      deep_copy = Marshal.load(Marshal.dump(matrix))
+      gridIndex = [0,3,6].sample
+      i = rand(3) + gridIndex
+      j = rand(3) + gridIndex
+      print gridIndex, i, j
+      deep_copy[i], deep_copy[j] = deep_copy[j], deep_copy[i]
+      matrix = deep_copy
+    end
+    matrix
+  end
+
+  def new_board(matrix)
+    new_matrix = random_rotation(matrix)
+    new_matrix = number_mapper(new_matrix)
+    board_shuffle_rows(new_matrix)
+  end
 
   # logic to handle solving board ----------------------------------------------
 
