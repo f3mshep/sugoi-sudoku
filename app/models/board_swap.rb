@@ -1,8 +1,8 @@
 class BoardSwap
-  attr_reader :initial_board
+  attr_accessor :initial_board
   attr_accessor :swapped_board
 
-  def intialize(initial_board)
+  def initialize(initial_board)
     self.initial_board = initial_board
     new_board
   end
@@ -44,7 +44,7 @@ def random_rotation(matrix)
 end
 
   def board_shuffle_rows(matrix)
-    9.times do
+    rand(9..100).times do
       deep_copy = Marshal.load(Marshal.dump(matrix))
       gridIndex = [0,3,6].sample
       i = rand(3) + gridIndex
@@ -66,7 +66,7 @@ end
     new_matrix = random_rotation(initial_board)
     new_matrix = number_mapper(new_matrix)
     new_matrix = board_shuffle_rows(new_matrix)
-    swapped_board = board_shuffle_columns(new_matrix)
+    self.swapped_board = board_shuffle_columns(new_matrix)
   end
 
 end

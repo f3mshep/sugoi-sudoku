@@ -14,14 +14,16 @@ class Game < ApplicationRecord
       game = Game.find_by(name:'easy')
     end
       new_game = Game.new
-      new_game.initial_board, new_game.current_board = game.initial_board
+      new_game.initial_board = game.initial_board
+      new_game.current_board = game.initial_board
       new_game.new_state
   end
 
   def new_state
     new_board = initial_board
-    new_board = BoardSwap.new(new_board).swapped_board
-    initial_board, current_board = new_board
+    new_board = BoardSwap.new(new_board)
+    self.initial_board = new_board.swapped_board
+    self.current_board = new_board.swapped_board
     self
   end
 

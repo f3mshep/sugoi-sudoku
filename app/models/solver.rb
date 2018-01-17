@@ -1,10 +1,10 @@
 class Solver
-  attr_reader :initial_board
+  attr_accessor :initial_board
   attr_accessor :solution
 
   def initialize(initial_board)
     self.initial_board = initial_board
-    sudoku_solver(initial_board)
+    sudoku_solver(Marshal.load(Marshal.dump(initial_board)))
   end
 
 # function that finds the next empty space
@@ -64,7 +64,7 @@ class Solver
   def sudoku_solver(board_matrix)
     location = find_empty_space(board_matrix)
     if !location
-      solution=board_matrix
+      self.solution=board_matrix
       return true
     end
     tentative_number = 1
