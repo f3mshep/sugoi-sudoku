@@ -6,150 +6,28 @@ class Game < ApplicationRecord
     case level
     when "easy"
       game = Game.find_by(name:'easy')
-      Game.new(initial_board: game.initial_board, current_board: game.initial_board)
     when "medium"
       game = Game.find_by(name:'medium')
-      Game.new(initial_board: game.initial_board, current_board: game.initial_board)
     when "hard"
       game = Game.find_by(name:'hard')
-      Game.new(initial_board: game.initial_board, current_board: game.initial_board)
     else
       game = Game.find_by(name:'easy')
-      Game.new(initial_board: game.initial_board, current_board: game.initial_board)
     end
+      new_game = Game.new
+      new_game.initial_board, new_game.current_board = game.initial_board
+      new_game.new_state
   end
 
-  def number_mapper(initial_board)
-    deep_copy = Marshal.load(Marshal.dump(initial_board))
-    key = ("a".."i").to_a
-    encrypted = deep_copy.map do |row|
-      row.map do |cell|
-        if cell < 1
-          'z'
-        else
-          key[cell - 1]
-        end
-      end
-    end
-    shuffled_key = key.shuffle
-    encrypted_numbers = encrypted.map do |row|
-      row.map.with_index do |cell, index|
-        if cell == 'z'
-          0
-        else
-          shuffled_key.index(cell) + 1
-        end
-      end
-    end
-  end
-
-def random_rotation(matrix)
-  d4 = 1 + rand(4)
-  d4.times do
-    deep_copy = Marshal.load(Marshal.dump(matrix))
-    new_copy = deep_copy.dup.transpose.map do |row|
-      row.reverse
-    end
-    matrix = new_copy
-  end
-  matrix
-end
-
-  def board_shuffle_rows(matrix)
-    # single row swap must be inside 3x3 grid
-    9.times do
-      deep_copy = Marshal.load(Marshal.dump(matrix))
-      gridIndex = [0,3,6].sample
-      i = rand(3) + gridIndex
-      j = rand(3) + gridIndex
-      print gridIndex, i, j
-      deep_copy[i], deep_copy[j] = deep_copy[j], deep_copy[i]
-      matrix = deep_copy
-    end
-    matrix
-  end
-
-  def new_board(matrix)
-    new_matrix = random_rotation(matrix)
-    new_matrix = number_mapper(new_matrix)
-    board_shuffle_rows(new_matrix)
+  def new_state
+    new_board = initial_board
+    new_board = BoardSwap.new(new_board).swapped_board
+    initial_board, current_board = new_board
+    self
   end
 
   # logic to handle solving board ----------------------------------------------
 
-  # function that finds the next empty space
-   def find_empty_space(board_matrix)
-    board_matrix.each_with_index do |row, i|
-      row.each_with_index do |cell, j|
-        return [i, j] if cell == 0
-      end
-    end
-    false
-  end
 
-  def in_row?(board_matrix, number, location)
-    #location is an array [i,j], i is outer index, j is inner
-    row = board_matrix[location.first]
-    row.include?(number)
-  end
-  #function that checks if a number is used in current column
-  def in_column?(board_matrix, number,location)
-    column = []
-    board_matrix.each_with_index do |row, i|
-      row.each_with_index do |cell, j|
-        column << cell if j == location[1]
-      end
-    end
-    column.include?(number)
-  end
-
-  def get_box(board_matrix, location)
-    x = 3 * (location[1] / 3)
-    y = 3 * (location[0] / 3)
-    box = []
-
-    3.times do |i|
-      3.times do |j|
-        box << board_matrix[y + j][x + i]
-      end
-    end
-
-    box
-  end
-
-  #function that checks if a number is used in current box
-  def in_box?(board_matrix, number, location)
-    box = get_box(board_matrix, location)
-    box.include?(number)
-  end
-  #function that checks if a number can be placed in location based on previous three methods
-
-  def can_place?(board_matrix, number, location)
-    return false if in_row?(board_matrix, number, location)
-    return false if in_column?(board_matrix, number, location)
-    return false if in_box?(board_matrix, number, location)
-    return true
-  end
-
-  def sudoku_solver(board_matrix)
-    location = find_empty_space(board_matrix)
-    if !location
-      print board_matrix
-      return true
-    end
-    tentative_number = 1
-    9.times do
-      if can_place?(board_matrix, tentative_number, location)
-        board_matrix[location[0]][location[1]] = tentative_number
-        if sudoku_solver(board_matrix)
-          return true
-        end
-      end
-      tentative_number += 1
-    end
-    board_matrix[location[0]][location[1]] = 0
-    return false
-  end
   #function that ties it all together and attemps to solve the sudoku
 
     #logic:
