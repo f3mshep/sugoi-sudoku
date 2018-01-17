@@ -1,7 +1,7 @@
 #Essential
 []Page transition animation
 []Style user input butttons
-
+[]Make DB/Store track game difficulty, and track difficulty in difficulty bar
 
 #Do after scheduling assessment
 []Create a board flopper and integrate it into the current #generate_game method
