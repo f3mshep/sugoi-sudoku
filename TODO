@@ -9,6 +9,9 @@
 []Add board_solution to schema
 []update react-redux to work with board_solution
 []Organize ruby backend
+[]Organize CSS
+[]Change React app title in title bar
 
 #Wishlist?
 []Add rules handling to grid
+

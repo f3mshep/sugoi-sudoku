@@ -35,6 +35,10 @@ table {
   background-color: #043d4b3a
 }
 
+.sudoku-grid .clicky .span-value  {
+  color: rgb(21, 152, 121);
+}
+
 .sudoku-grid .cell.clue {
   background: #bfc8cb7b;
   cursor: not-allowed;
@@ -54,6 +58,10 @@ table {
 
 .top-buffer {
   margin-top:20px;
+}
+
+.thicc {
+  margin-bottom: 10px;
 }
 
 .fade {

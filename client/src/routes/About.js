@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => (
   <div className="container">
     <div className="row justify-content-center">
-      <div className="top-buffer col-md-10 content-box">
+      <div className="top-buffer col-md-10 content-box thicc">
         <h2>Sudoku Now</h2>
         <p>A sudoku web application built by Alexandra Wright.</p>
         <hr />
