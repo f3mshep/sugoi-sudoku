@@ -51,6 +51,10 @@ body {
   border: 1px dashed;
 }
 
+.header-text {
+  text-align: center
+}
+
 .sudoku-grid .clicky:hover {
   background-color: #043d4b3a
 }
@@ -63,6 +67,8 @@ body {
   background: #bfc8cb7b;
   cursor: not-allowed;
 }
+
+
 
 .boop {
   margin-top: 40px;
@@ -193,7 +199,7 @@ body {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 190px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     z-index: 1;
 }

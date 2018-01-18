@@ -8,7 +8,7 @@ class LoadButtonContainer extends React.Component{
   showGames(){
     return this.props.savedGames.slice(1).slice(-5).map(
       (game,index) => <DropdownLink key={index}
-      value={game.time_created} path={`sudoku/${game.id}`}/>)
+      value={game.time_created} path={`/sudoku/${game.id}`}/>)
   }
 
   render(){

@@ -11,10 +11,18 @@ import {
 
 const Sudoku = () => (
   <div>
+     {/* <div className="container">
+       <div className="row justify-content-center">
+         <div className="top-buffer col-md-10 content-box thicc">
+           <h2 className='header-text'>Saved Games</h2>
+           <hr/>
+         </div>
+       </div>
+     </div> */}
     <Router>
       <div>
         <Switch>
-          <Route path="/sudoku/new/:difficulty" component={NewSudoku} />
+          <Route exact path="/sudoku/new/:difficulty" component={NewSudoku} />
           <Route path="/sudoku/:id" component={LoadSudoku} />
         </Switch>
       </div>

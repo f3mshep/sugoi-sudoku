@@ -9,7 +9,7 @@ import { withRouter } from "react-router-dom";
 
 class UserButtons extends React.Component{
 
-  saveGame(){
+  saveGame(event){
     this.props.actions.thunkActions.saveAndList(this.props.game)
   }
 

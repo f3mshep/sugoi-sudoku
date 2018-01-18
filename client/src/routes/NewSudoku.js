@@ -18,6 +18,7 @@ class NewSudoku extends Component {
   }
 
   render() {
+    console.log("new path");
     return <SudokuBoard game={this.props.game}/>;
   }
 }

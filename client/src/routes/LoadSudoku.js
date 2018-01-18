@@ -18,6 +18,7 @@ class Sudoku extends Component {
   }
 
   render() {
+    console.log('load path')
     return <SudokuBoard game={this.props.game} />
   }
 }

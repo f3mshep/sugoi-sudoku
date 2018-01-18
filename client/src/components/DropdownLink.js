@@ -1,8 +1,9 @@
 import React from 'react'
-import {Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-const DropdownLink = (props) => (
-  <Link replace to={{ pathname: props.path}}>{props.value}</Link>
-)
+const DropdownLink = (props) => {
+  debugger
+  return <NavLink exact to={props.path}>{props.value}</NavLink>
+}
 
 export default DropdownLink

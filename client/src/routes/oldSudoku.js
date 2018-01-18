@@ -28,6 +28,7 @@ class Sudoku extends Component {
   }
 
   render() {
+
     return <div className="container boop">
         <div className="row justify-content-center">
           <DifficultyBar difficulty={this.props.game.difficulty} />
