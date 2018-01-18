@@ -10,6 +10,8 @@ class Game < ApplicationRecord
       game = Game.new(difficulty: 'medium', current_board: MEDIUM_BOARD, initial_board: MEDIUM_BOARD)
     when "hard"
       game = Game.new(difficulty: 'hard', current_board: HARD_BOARD, initial_board: HARD_BOARD)
+    when "insanity"
+      game = Game.new(difficult: 'insanity', current_board: INSANE_BOARD, initial_board: INSANE_BOARD)
     else
       game = Game.new(difficulty: 'easy', current_board: EASY_BOARD, initial_board: EASY_BOARD)
     end
@@ -82,5 +84,7 @@ class Game < ApplicationRecord
   [0, 0, 3, 4, 5, 0, 2, 9, 0],
   [0, 5, 0, 0, 0, 0, 0, 0, 0]
 ]
+
+INSANE_BOARD = []
 
 end

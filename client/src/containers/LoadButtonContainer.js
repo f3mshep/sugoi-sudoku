@@ -6,15 +6,15 @@ import { withRouter } from "react-router-dom";
 class LoadButtonContainer extends React.Component{
 
   showGames(){
-    return this.props.savedGames.slice(1).slice(-5).map(
-      (game,index) => <DropdownLink key={index}
-      value={game.time_created} path={`/sudoku/${game.id}`}/>)
+    return this.props.savedGames.map(
+      (game,index) =>
+      <DropdownLink key={index} value={game.time_created} path={`/sudoku/${game.id}`}/>)
   }
 
   render(){
 
-    return <div className="dropdown">
-        <button className="btn btn-secondary dropdown-toggle">Dropdown</button>
+    return <div onMouseEnter={this.props.callback} className="dropdown">
+        <button className="btn btn-secondary dropdown-toggle">Load Game</button>
         <div className="dropdown-content">
           {this.showGames()}
         </div>

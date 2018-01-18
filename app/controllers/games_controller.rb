@@ -13,8 +13,11 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.create
+    #todo: get the .require.permit working
     @game.initial_board = params[:game][:initial_board]
     @game.current_board = params[:game][:current_board]
+    @game.difficulty = params[:game][:difficulty]
+    @game.solution = params[:game][:solution]
     @game.save
     render json: @game
   end
@@ -32,7 +35,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    render json: Game.all
+    render json: Game.last(4)
   end
 
   def show

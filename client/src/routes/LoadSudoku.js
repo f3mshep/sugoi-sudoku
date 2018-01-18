@@ -12,8 +12,9 @@ class Sudoku extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     if (nextProps.id !== this.props.id) {
-      this.props.actions.loadGame(this.props.id);
+      this.props.actions.loadGame(nextProps.id);
     }
   }
 

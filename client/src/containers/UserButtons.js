@@ -9,6 +9,7 @@ import { withRouter } from "react-router-dom";
 
 class UserButtons extends React.Component{
 
+
   saveGame(event){
     this.props.actions.thunkActions.saveAndList(this.props.game)
   }
@@ -18,6 +19,10 @@ class UserButtons extends React.Component{
     // list button https://v4-alpha.getbootstrap.com/components/button-group/
     const lastGame = this.props.savedGames[this.props.savedGames.length - 1];
     this.props.actions.thunkActions.loadGame(lastGame.id)
+  }
+
+  loadList(){
+    this.props.actions.thunkActions.listSavedGames()
   }
 
   resetBoard(){
@@ -30,10 +35,11 @@ class UserButtons extends React.Component{
 
   render(){
     return <div className="btn-group thicc" role="group" aria-label="Basic example">
-      <UserButton callback={this.saveGame.bind(this)} value={'Save'}/>
+
+      <UserButton callback={this.saveGame.bind(this)} value={'Save Game'}/>
       {/* <UserButton callback={this.loadGame.bind(this)} value={'Load'}/> */}
-      <LoadButtonContainer />
-      <UserButton callback={this.resetBoard.bind(this)} value={'Reset'}/>
+      <LoadButtonContainer callback={this.loadList.bind(this)} />
+      <UserButton callback={this.resetBoard.bind(this)} value={'Reset Game'}/>
     </div>;
   }
 
