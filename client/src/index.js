@@ -12,7 +12,9 @@ import "font-awesome/css/font-awesome.css";
 
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter><App /></BrowserRouter>
-  </Provider>, document.getElementById('root'));
+<BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+</BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();

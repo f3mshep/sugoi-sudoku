@@ -74,4 +74,4 @@ function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators({changeBoard}, dispatch) };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CellLogic)
+export default  withRouter(connect(mapStateToProps, mapDispatchToProps)(CellLogic))

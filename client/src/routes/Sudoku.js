@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { fetchGame } from '../actions/thunkage'
 import { loadGame } from '../actions/thunkage'
 import DifficultyBar from '../containers/DifficultyBar'
+import { withRouter } from 'react-router-dom'
 // import * as actions from './actions/thunkage'
 
 
@@ -62,4 +63,4 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sudoku)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sudoku))

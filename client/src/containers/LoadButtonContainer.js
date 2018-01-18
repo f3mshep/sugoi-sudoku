@@ -26,4 +26,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(LoadButtonContainer)
+export default  withRouter(connect(mapStateToProps)(LoadButtonContainer))

@@ -51,4 +51,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserButtons)
+export default  withRouter(connect(mapStateToProps, mapDispatchToProps)(UserButtons))
