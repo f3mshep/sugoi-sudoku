@@ -10,11 +10,11 @@ class DifficultyBar extends React.Component {
   }
 
   difficultyBar() {
-    return difficulties.map(difficulty => {
+    return difficulties.map((difficulty,index) => {
       if (difficulty === this.props.difficulty) {
-        return <RadioToggle path={`/sudoku/new/${difficulty}`} value={this.capitalizeFirstLetter(difficulty)} active={true} />;
+        return <RadioToggle path={`/sudoku/new/${difficulty}`} key={index}  value={this.capitalizeFirstLetter(difficulty)} active={true} />;
       } else {
-        return <RadioToggle path={`/sudoku/new/${difficulty}`} value={this.capitalizeFirstLetter(difficulty)} active={false} />;
+        return <RadioToggle path={`/sudoku/new/${difficulty}`} key={index} value={this.capitalizeFirstLetter(difficulty)} active={false} />;
       }
     });
   }

@@ -4,6 +4,7 @@ import LoadSudoku from './LoadSudoku'
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
   withRouter
 } from 'react-router-dom'
 
@@ -12,8 +13,10 @@ const Sudoku = () => (
   <div>
     <Router>
       <div>
-        <Route path="/sudoku/new/:difficulty" component={NewSudoku} />
-        <Route path="/sudoku/:id" component={LoadSudoku} />
+        <Switch>
+          <Route path="/sudoku/new/:difficulty" component={NewSudoku} />
+          <Route path="/sudoku/:id" component={LoadSudoku} />
+        </Switch>
       </div>
     </Router>
   </div>

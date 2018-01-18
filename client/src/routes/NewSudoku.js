@@ -8,19 +8,16 @@ import { withRouter, Route } from "react-router-dom";
 
 class NewSudoku extends Component {
   componentDidMount() {
-    debugger
     this.props.actions.fetchGame(this.props.difficulty);
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (nextProps.difficulty !== this.props.difficulty) {
       this.props.actions.fetchGame(nextProps.difficulty);
     }
   }
 
   render() {
-    debugger
     return <SudokuBoard game={this.props.game}/>;
   }
 }

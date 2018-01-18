@@ -8,7 +8,6 @@ export function fetchGame(level){
     })
       .then(response => response.json())
       .then(game => {
-        console.log(game);
         dispatch({ type: "FETCH_NEW_GAME", payload: game});
       });
   }
@@ -25,7 +24,6 @@ function saveGame(gamePayload){
         })
           .then(response => response.json())
           .then(game => {
-            console.log(game);
             dispatch({ type: "SAVE_GAME", payload: game });
           });
     }
@@ -36,7 +34,6 @@ function saveGame(gamePayload){
        })
         .then(response => response.json())
         .then(game => {
-          console.log(game)
           dispatch({ type: "SAVE_GAME", payload: game });
         });
     }
@@ -59,7 +56,6 @@ export function listSavedGames(){
     return fetch("/games")
     .then(response => response.json())
     .then(games =>{
-      console.log('updated list')
       dispatch({type: "LIST_GAMES", payload: games})
     })
   }

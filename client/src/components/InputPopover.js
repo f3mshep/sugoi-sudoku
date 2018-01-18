@@ -5,7 +5,7 @@ import InputRow from './InputRow'
   let rows = []
   let rowCount = 1
   while (rowCount < 4) {
-    rows.push(<InputRow handleInput={props.handleInput} row={rowCount} />);
+    rows.push(<InputRow handleInput={props.handleInput} key={rowCount} row={rowCount} />);
     ++rowCount
   }
   return <div id="input-table-holder">
