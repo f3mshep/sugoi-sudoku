@@ -3,7 +3,7 @@ import SudokuBoard from "../components/SudokuBoard"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchGame, loadGame } from "../actions/thunkage";
-import { withRouter, Route } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 // import * as actions from './actions/thunkage'
 
 class NewSudoku extends Component {

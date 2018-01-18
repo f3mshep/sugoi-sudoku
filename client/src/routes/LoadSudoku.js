@@ -3,7 +3,7 @@ import SudokuBoard from "../components/SudokuBoard";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchGame, loadGame } from "../actions/thunkage";
-import { withRouter, Route } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 
 class Sudoku extends Component {
@@ -12,8 +12,8 @@ class Sudoku extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.difficulty !== this.props.difficulty) {
-      this.props.actions.fetchGame(nextProps.difficulty);
+    if (nextProps.id !== this.props.id) {
+      this.props.actions.loadGame(this.props.id);
     }
   }
 

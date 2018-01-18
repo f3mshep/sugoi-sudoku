@@ -7,7 +7,6 @@ import NavBar from './components/NavBar'
 import About from './routes/About'
 import Home from './routes/Home'
 import Sudoku from './routes/Sudoku'
-import Winner from './routes/Winner'
 import FooterBar from "./components/FooterBar.js";
 import { withRouter } from "react-router-dom";
 const App = props => (
