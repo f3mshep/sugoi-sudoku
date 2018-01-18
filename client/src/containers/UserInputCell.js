@@ -1,6 +1,7 @@
 import React from 'react'
 import InputPopover from "../components/InputPopover";
 import CloseButton from "../components/CloseButton"
+import { withRouter } from "react-router-dom";
 
 class UserInputCell extends React.Component {
   //smart component that handles user interaction

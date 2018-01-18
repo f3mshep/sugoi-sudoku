@@ -14,12 +14,12 @@ import { withRouter } from "react-router-dom";
 const App = props => (
   <div className="app">
     <NavBar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route path={`/sudoku/new/:difficulty`} component={Sudoku} />
-        <Route path={`/sudoku/:id`} component={Sudoku} />
-      </Switch>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path={`/sudoku/new/:difficulty`} component={Sudoku} />
+      <Route path={`/sudoku/:id`} component={Sudoku} />
+    </Switch>
     <FooterBar />
   </div>
 );

@@ -1,7 +1,8 @@
 import React from 'react'
+import {Link } from 'react-router-dom'
 
 const DropdownLink = (props) => (
-  <a href={props.path}>{props.value}</a>
+  <Link replace to={{ pathname: props.path}}>{props.value}</Link>
 )
 
 export default DropdownLink

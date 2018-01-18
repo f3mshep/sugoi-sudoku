@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 import { fetchGame } from '../actions/thunkage'
 import { loadGame } from '../actions/thunkage'
 import DifficultyBar from '../containers/DifficultyBar'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Route } from 'react-router-dom'
 // import * as actions from './actions/thunkage'
 
 
@@ -21,10 +21,16 @@ class Sudoku extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    if (nextProps.difficulty !== this.props.difficulty){
+      this.props.actions.fetchGame(nextProps.difficulty)
+    }
+  }
+
   render() {
     return <div className="container boop">
         <div className="row justify-content-center">
-            <DifficultyBar difficulty={this.props.game.difficulty} />
+          <DifficultyBar difficulty={this.props.game.difficulty} />
         </div>
         <div className="row top-buffer justify-content-center h-100">
           <div className="subtle-shadow">
