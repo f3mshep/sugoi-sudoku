@@ -1,8 +1,7 @@
 import React from 'react'
 import {
   Route,
-  Switch,
-  Link
+  Switch
 } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import About from './routes/About'
@@ -17,8 +16,7 @@ const App = props => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
-      <Route exact path={`/sudoku/new/:difficulty`} component={Sudoku} />
-      <Route path={`/sudoku/:id`} component={Sudoku} />
+      <Route path={`/sudoku`} component={Sudoku} />
     </Switch>
     <FooterBar />
   </div>
