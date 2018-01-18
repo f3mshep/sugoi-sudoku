@@ -1,6 +1,6 @@
 import React from 'react'
-var FontAwesome = require("react-fontawesome");
-
+import FontAwesome from 'react-fontawesome'
+import { NavLink } from 'react-router-dom'
 
 const FooterBar = props => (
   <div className="footer-wrap">
@@ -14,12 +14,12 @@ const FooterBar = props => (
                 </a>
               </li>
               <li className="nav-link">
-                <a
+                <NavLink
                   className="no-color nav-link"
-                  href="/about"
+                  to="/about"
                 >
-                  <p>About Sudoku Now</p>
-                </a>
+                  <p>about Sudoku Now</p>
+                </NavLink>
               </li>
             </ul>
 

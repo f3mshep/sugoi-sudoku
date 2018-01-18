@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { withRouter } from "react-router-dom";
 const About = () => (
   <div className="container">
     <div className="row justify-content-center">
@@ -44,4 +44,4 @@ const About = () => (
   </div>
 );
 
-export default About
+export default withRouter(About)

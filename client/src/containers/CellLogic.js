@@ -4,6 +4,7 @@ import ClueCell from '../components/ClueCell'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { changeBoard } from '../actions/input'
+import { withRouter } from "react-router-dom";
 
 class CellLogic extends React.Component {
   //Smart component that handles logic of what goes inside the square

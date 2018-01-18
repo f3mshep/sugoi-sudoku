@@ -5,6 +5,7 @@ import * as thunkActions from "../actions/thunkage";
 import * as inputActions from "../actions/input"
 import UserButton from '../components/UserButton'
 import LoadButtonContainer from './LoadButtonContainer';
+import { withRouter } from "react-router-dom";
 
 class UserButtons extends React.Component{
 

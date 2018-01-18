@@ -1,11 +1,12 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 const NavBar = () => (
   <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a className="navbar-brand" href="/">
+      <NavLink className="navbar-brand" to="/">
         SudokuNow
-      </a>
+      </NavLink>
       <button
         className="navbar-toggler"
         type="button"
@@ -21,9 +22,9 @@ const NavBar = () => (
         <div className="collapse mx-auto navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/sudoku/easy">
+              <NavLink className="nav-link" to="/sudoku/new/easy">
                 Play Sudoku!
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
