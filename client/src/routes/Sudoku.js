@@ -12,7 +12,6 @@ import DifficultyBar from '../containers/DifficultyBar'
 class Sudoku extends Component {
 
   componentDidMount(){
-    debugger
     if(this.props.id){
       this.props.actions.loadGame(this.props.id)
     }

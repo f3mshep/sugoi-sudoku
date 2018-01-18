@@ -1,7 +1,8 @@
 #Essential
 []Page transition animation
 [x]Style user input buttons
-[ip]Make DB/Store track game difficulty, and track difficulty in difficulty bar - load call the show action
+[x]Make DB/Store track game difficulty, and track difficulty in difficulty bar - load call the show action
+[] Fix issue with path - choosing a difficulty after loading a game is messed up
 []add animation if game is saved
 
 #Do after scheduling assessment

@@ -26,7 +26,7 @@ function saveGame(gamePayload){
           .then(response => response.json())
           .then(game => {
             console.log(game);
-            dispatch({ type: "SAVE_GAME", id: game.id });
+            dispatch({ type: "SAVE_GAME", payload: game });
           });
     }
     else{
@@ -37,7 +37,7 @@ function saveGame(gamePayload){
         .then(response => response.json())
         .then(game => {
           console.log(game)
-          dispatch({ type: "SAVE_GAME", id: game.id });
+          dispatch({ type: "SAVE_GAME", payload: game });
         });
     }
   }

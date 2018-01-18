@@ -3,7 +3,7 @@ class GameSerializer < ActiveModel::Serializer
   :time_created
 
   def time_created
-    object.created_at.strftime("%B %d - %I:%M %p") if object.created_at
+    object.created_at.localtime.strftime("%B %d - %I:%M %p") if object.created_at
   end
 
 

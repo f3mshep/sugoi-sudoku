@@ -42,7 +42,8 @@ export default function gameReducer(state = {
           return Object.assign({}, state, { loading: false }, { game: Object.assign(
                 {},
                 state.game,
-                { id: action.id }
+                { id: action.payload.id },
+                { time_created: action.payload.time_created }
               ) });
         case "RESET_BOARD":
           return Object.assign({}, state, {
