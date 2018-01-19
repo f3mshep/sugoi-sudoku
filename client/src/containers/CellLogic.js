@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { changeBoard } from '../actions/input'
 import { withRouter } from "react-router-dom";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 class CellLogic extends React.Component {
   //Smart component that handles logic of what goes inside the square
@@ -58,7 +59,7 @@ class CellLogic extends React.Component {
         value={this.setValue()}
       />
     ) : (
-      <ClueCell value={this.props.clue} />
+      <ClueCell key={1} value={this.props.clue} />
     );
     //show hidden image popover if showInput = true
     return chosenOne;

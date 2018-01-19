@@ -19,7 +19,7 @@ body {
 
 .fade {
   opacity: 0;
-  transition: opacity 0.15s linear;
+  transition: opacity 0.5s linear;
 }
 
 .fade.in {
@@ -29,7 +29,18 @@ body {
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 250ms ease-in;
+  transition: opacity 500ms ease-in;
+}
+
+/* CSSTransitionGroup */
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
 }
 
 /* Sudoku Grid */
@@ -223,4 +234,24 @@ body {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
+}
+
+/* Clue cell fade in */
+
+.clue-fade-enter {
+  opacity: 0.01;
+}
+
+.clue-fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.clue-fade-leave {
+  opacity: 1;
+}
+
+.clue-fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

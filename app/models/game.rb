@@ -11,7 +11,7 @@ class Game < ApplicationRecord
     when "hard"
       game = Game.new(difficulty: 'hard', current_board: HARD_BOARD, initial_board: HARD_BOARD)
     when "insanity"
-      game = Game.new(difficult: 'insanity', current_board: INSANE_BOARD, initial_board: INSANE_BOARD)
+      game = Game.new(difficulty: 'insanity', current_board: INSANE_BOARD, initial_board: INSANE_BOARD)
     else
       game = Game.new(difficulty: 'easy', current_board: EASY_BOARD, initial_board: EASY_BOARD)
     end
@@ -23,7 +23,7 @@ class Game < ApplicationRecord
     new_board = BoardSwap.new(new_board)
     self.initial_board = new_board.swapped_board
     self.current_board = new_board.swapped_board
-    self.solution = self.solve
+    # self.solution = self.solve
     #if performance takes a hit, move solution to another action, such as check
     self
   end
@@ -85,6 +85,16 @@ class Game < ApplicationRecord
   [0, 5, 0, 0, 0, 0, 0, 0, 0]
 ]
 
-INSANE_BOARD = []
+INSANE_BOARD = [
+  [6, 0, 7, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 3, 0, 0, 0, 0],
+  [0, 5, 8, 7, 0, 0, 0, 0, 2],
+  [7, 0, 0, 0, 0, 9, 4, 0, 8],
+  [0, 0, 0, 4, 0, 2, 0, 0, 0],
+  [2, 0, 1, 8, 0, 0, 0, 0, 6],
+  [3, 0, 0, 0, 0, 1, 8, 6, 0],
+  [0, 0, 0, 0, 9, 0, 0, 0, 0],
+  [0, 0, 9, 0, 0, 0, 5, 0, 4]
+]
 
 end

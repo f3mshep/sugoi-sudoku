@@ -6,7 +6,7 @@ import { fetchGame, loadGame } from "../actions/thunkage";
 import { withRouter } from "react-router-dom";
 
 
-class Sudoku extends Component {
+class LoadSudoku extends Component {
   componentDidMount() {
     this.props.actions.loadGame(this.props.id);
   }
@@ -37,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sudoku));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoadSudoku));
