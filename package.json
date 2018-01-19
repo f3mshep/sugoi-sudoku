@@ -1,6 +1,11 @@
 {
-  "dependencies": {
-    "react-addons-css-transition-group": "^15.6.2",
-    "react-fontawesome": "^1.6.1"
+  "name": "sudoku-now",
+  "engines": {
+    "node": "6.3.1"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   }
 }
