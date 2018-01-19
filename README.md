@@ -35,6 +35,8 @@ rails start
 
 This will set up a local server hosting the web app, 'start' is aliased as a rake task to start both the react application as well as the Rails API.  Navigate to [Local Host](tcp://0.0.0.0:3000) try it out!
 
+There is a production build you can play with, hosted on heroku: [Sudoku Now](https://sudoku-now.herokuapp.com/)
+
 ## Development
 
 Developed by Alexandra Wright
