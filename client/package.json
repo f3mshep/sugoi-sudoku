@@ -9,6 +9,7 @@
     "font-awesome": "^4.7.0",
     "lodash.clonedeep": "^4.5.0",
     "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-bootstrap": "^0.32.0",
     "react-bs-notifier": "^4.4.5",
     "react-dom": "^16.2.0",
