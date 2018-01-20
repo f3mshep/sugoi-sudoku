@@ -8,12 +8,12 @@ class LoadButtonContainer extends React.Component{
   showGames(){
     return this.props.savedGames.map(
       (game,index) =>
-      <DropdownLink key={index} value={game.time_created} path={`/sudoku/${game.id}`}/>)
+      <DropdownLink key={index} id={game.id} callback={this.props.loadGame} value={game.time_created} path={`/sudoku/${game.id}`}/>)
   }
 
   render(){
 
-    return <div onMouseEnter={this.props.callback} className="dropdown">
+    return <div className="dropdown">
         <button className="btn btn-secondary dropdown-toggle">Load Game</button>
         <div className="dropdown-content">
           {this.showGames()}

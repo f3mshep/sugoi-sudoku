@@ -26,11 +26,11 @@ class UserButtons extends React.Component{
     this.props.actions.thunkActions.saveAndList(this.props.game)
   }
 
-  loadGame(){
+  loadGame(id){
     // TODO: Display a list of most recent saved games by date, use bootstrap
     // list button https://v4-alpha.getbootstrap.com/components/button-group/
-    const lastGame = this.props.savedGames[this.props.savedGames.length - 1];
-    this.props.actions.thunkActions.loadGame(lastGame.id)
+    console.log('load fired')
+    this.props.actions.thunkActions.loadGame(id)
   }
 
   loadList(){
@@ -50,7 +50,7 @@ class UserButtons extends React.Component{
         <SaveAlert disableAlert={this.disableAlert.bind(this)} alert={this.state.alert}/>
         <UserButton callback={this.saveGame.bind(this)} value={"Save Game"} />
         {/* <UserButton callback={this.loadGame.bind(this)} value={'Load'}/> */}
-        <LoadButtonContainer callback={this.loadList.bind(this)} />
+        <LoadButtonContainer loadGame={this.loadGame.bind(this)} />
         <UserButton callback={this.resetBoard.bind(this)} value={"Reset Game"} />
       </div>;
   }

@@ -12,7 +12,6 @@ class LoadSudoku extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (nextProps.id !== this.props.id) {
       this.props.actions.loadGame(nextProps.id);
     }
