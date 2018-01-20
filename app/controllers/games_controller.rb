@@ -35,7 +35,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    render json: Game.last(4)
+    render json: Game.last(4).reverse
   end
 
   def show
