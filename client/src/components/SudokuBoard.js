@@ -11,7 +11,7 @@ const SudokuBoard = (props) => (
   </div>
   <div className="row top-buffer justify-content-center h-100">
     <div className="subtle-shadow">
-      <table className="sudoku-grid my-auto">
+      <table className="sudoku-grid main-table my-auto">
         <tbody>
           <TableRow
             coordinates={{ x: null, y: 1 }}

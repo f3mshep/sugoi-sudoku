@@ -12,8 +12,13 @@ body {
 
 /* Input Cell Animation */
 
+.make-absolute {
+  text-align: center;
+  position: absolute;
+}
 
 .input-popover-enter {
+  position: absolute;
   transform: scale(0);
 }
 
@@ -23,24 +28,26 @@ body {
 }
 
 .input-popover-leave {
+  position: absolute;
   transform: scale(1);
 }
 
 .input-popover-leave.input-popover-leave-active {
   transform: scale(0);
-  transition: 150ms ease-in;
+  transition: 0ms ease-in;
 }
 
 
 /* cell value animation */
 
 .span-value{
+  position: relative;
   transform: scale(0);
   transition: 0.1s ease-in;
 }
 
 .span-value.show{
-  transform: scale(1)
+  transform: scale(.99)
 }
 
 /* Sudoku Grid */
@@ -49,7 +56,7 @@ body {
   outline: solid 2px;
 }
 
-.sudoku-grid .cell {
+.cell {
   cursor: pointer;
   margin-top: -1px;
   margin-left: -1px;
@@ -58,7 +65,16 @@ body {
   height: 60px;
   display: inline-block;
   text-align: center;
-  border: 1px dashed;
+  border-top: 1px dashed;
+  border-right: 1px dashed;
+}
+
+.sudoku-grid .cell:nth-child(n+3):nth-last-child(n+1){
+  border-right: none;
+}
+
+.sudoku-grid .no-top{
+
 }
 
 .header-text {

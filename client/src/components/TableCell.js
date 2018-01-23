@@ -4,28 +4,6 @@ import InnerTableRow from "./InnerTableRow";
 
 const TableCell = (props) =>{
 
-  // const table = <table cellPadding="0" cellSpacing="0" border="1">
-  //   <tbody>
-  //     {props.cell.map((row,indxI) =>
-  //       <tr>
-  //         {row.map((square, indxJ) =>
-  //         {
-  //           let clue = props.cellClues[indxI][indxJ]
-  //           if(clue){
-  //             return <td class="clue"><span><strong>{clue}</strong></span></td>
-  //           }
-  //           else{
-  //             return <td><span>{square}</span></td>
-  //           }
-  //           })
-  //         }
-  //       </tr>
-  //     )}
-  //   </tbody>
-  // </table>;
-
-
-  // return <td>{table}</td> ;
   return <td>
       <table className="sudoku-grid" cellPadding="0" cellSpacing="0">
         <tbody>

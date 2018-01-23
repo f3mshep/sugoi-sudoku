@@ -61,7 +61,7 @@ class UserInputCell extends React.Component {
 
   render() {
     return <td ref={this.setWrapperRef} onClick={this.showInput.bind(this)} className={this.state.showingInput ? "cell" : "cell clicky"}>
-        <ReactCSSTransitionGroup transitionName="input-popover" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+        <ReactCSSTransitionGroup component="div" className="make-absolute" transitionName="input-popover" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
           {this.state.showingInput ? <InputPopover key={1} handleInput={this.handleInputAndHide.bind(this)} /> : null}
         </ReactCSSTransitionGroup>
         {this.hasNumber() ? <CloseButton handleInput={this.handleInputAndHide.bind(this)} /> : null}
