@@ -42,10 +42,8 @@ function saveGame(gamePayload){
 export function saveAndList(gamePayload) {
   //Dan Abromav is my hero.
   return function(dispatch) {
-    return Promise.all([
-      dispatch(saveGame(gamePayload)),
-      dispatch(listSavedGames())
-    ]);
+    return dispatch(saveGame(gamePayload))
+      .then(()=>dispatch(listSavedGames()))
   };
 }
 
