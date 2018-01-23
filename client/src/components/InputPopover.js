@@ -9,7 +9,7 @@ import InputRow from './InputRow'
     ++rowCount
   }
   return <div id="input-table-holder">
-      <table className="fade in" id="input-popover">
+      <table id="input-popover">
         <tbody>{rows}</tbody>
       </table>
     </div>;

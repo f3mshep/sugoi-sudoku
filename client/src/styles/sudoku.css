@@ -12,25 +12,25 @@ body {
 
 /* Input Cell Animation */
 
-.fade-enter {
-  opacity: 0;
-  z-index: 1;
+
+.input-popover-enter {
+  transform: scale(0);
 }
 
-.fade {
-  opacity: 0;
-  transition: opacity 0.5s linear;
+.input-popover-enter.input-popover-enter-active {
+  transform: scale(1);
+  transition:  150ms ease-in;
 }
 
-.fade.in {
-  opacity: 1;
-  display: block !important;
+.input-popover-leave {
+  transform: scale(1);
 }
 
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
+.input-popover-leave.input-popover-leave-active {
+  transform: scale(0);
+  transition: 150ms ease-in;
 }
+
 
 /* cell value animation */
 

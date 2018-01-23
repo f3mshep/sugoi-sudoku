@@ -2,6 +2,7 @@ import React from 'react'
 import InputPopover from "../components/InputPopover";
 import CloseButton from "../components/CloseButton"
 import CellDiv from "../components/CellDiv"
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 
 class UserInputCell extends React.Component {
   //smart component that handles user interaction
@@ -59,21 +60,13 @@ class UserInputCell extends React.Component {
   }
 
   render() {
-    return (
-      <td
-        ref={this.setWrapperRef}
-        onClick={this.showInput.bind(this)}
-        className={this.state.showingInput ? "cell" : "cell clicky"}
-      >
-        {this.state.showingInput ? (
-          <InputPopover handleInput={this.handleInputAndHide.bind(this)} />
-        ) : null}
-        {this.hasNumber() ? (
-          <CloseButton handleInput={this.handleInputAndHide.bind(this)} />
-        ) : null}
+    return <td ref={this.setWrapperRef} onClick={this.showInput.bind(this)} className={this.state.showingInput ? "cell" : "cell clicky"}>
+        <ReactCSSTransitionGroup transitionName="input-popover" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+          {this.state.showingInput ? <InputPopover key={1} handleInput={this.handleInputAndHide.bind(this)} /> : null}
+        </ReactCSSTransitionGroup>
+        {this.hasNumber() ? <CloseButton handleInput={this.handleInputAndHide.bind(this)} /> : null}
         <CellDiv divClass={this.state.divClass} value={this.props.value} />
-      </td>
-    );
+      </td>;
   }
 }
 
