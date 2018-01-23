@@ -22,12 +22,10 @@ class UserInputCell extends React.Component {
   }
 
   hideInput() {
-    console.log("hiding");
     this.setState({ showingInput: false });
   }
 
   showInput() {
-    console.log("showing");
     this.setState({ showingInput: true });
   }
 

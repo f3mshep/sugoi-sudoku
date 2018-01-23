@@ -10,7 +10,7 @@ body {
 
 
 
-/* Animation */
+/* Input Cell Animation */
 
 .fade-enter {
   opacity: 0;
@@ -32,36 +32,16 @@ body {
   transition: opacity 500ms ease-in;
 }
 
-/* CSSTransitionGroup */
+/* cell value animation */
 
-.example-appear {
-  opacity: 0.01;
+.span-value{
+  transform: scale(0.1);
+  transition: 0.1s ease-in;
 }
 
-.example-appear.example-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
+.span-value.show{
+  transform: scale(1)
 }
-
-.example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-
-
 
 /* Sudoku Grid */
 
@@ -94,7 +74,7 @@ body {
   color: rgb(21, 152, 121);
 }
 
-.sudoku-grid .cell.clue {
+.clue {
   background: #bfc8cb7b;
   cursor: not-allowed;
 }
@@ -155,9 +135,7 @@ body {
   z-index: 2000;
 }
 
-.span-value{
-  position: relative;
-}
+
 
 .close-button {
   display: none!important;
@@ -256,22 +234,3 @@ body {
     background-color: #3e8e41;
 }
 
-/* Clue cell fade in */
-
-.clue-fade-enter {
-  opacity: 0.01;
-}
-
-.clue-fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.clue-fade-leave {
-  opacity: 1;
-}
-
-.clue-fade-leave.fade-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
