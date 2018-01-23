@@ -8,6 +8,7 @@ const TableCell = (props) =>{
       <table className="sudoku-grid" cellPadding="0" cellSpacing="0">
         <tbody>
           <InnerTableRow
+            rowClass={"top-row"}
             bigTable={props.bigTable}
             littleTable={{x:null, y:1}}
             row={props.cell[0]}

@@ -3,7 +3,7 @@ import CellLogic from '../containers/CellLogic'
 
 const InnerTableRow = (props) =>{
 
-  return <tr className="">
+  return <tr className={props.rowClass}>
       <CellLogic
         bigTable={props.bigTable}
         littleTable={{ x: 1, y: props.littleTable.y }}
