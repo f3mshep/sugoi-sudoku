@@ -57,8 +57,16 @@ export function listSavedGames(){
   }
 }
 
-export function checkGame(){
-
+export function checkGame(gamePayload){
+  return function(dispatch){
+    return fetch("/check", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ game: gamePayload })
+        })
+    .then(response => response.json())
+    .then(game => dispatch({type: "ADD_SOLUTION", payload: game.solution}))
+  }
 }
 
 export function loadGame(gameId){

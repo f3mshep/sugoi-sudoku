@@ -53,7 +53,7 @@ body {
 /* Sudoku Grid */
 
 .sudoku-grid {
-  outline: solid 2px;
+  outline: solid 2.5px;
 }
 
 .cell {

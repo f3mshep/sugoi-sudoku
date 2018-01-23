@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SudokuBoard from "../components/SudokuBoard"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchGame, loadGame } from "../actions/thunkage";
+import { fetchGame, loadGame, checkGame } from "../actions/thunkage";
 import { withRouter } from "react-router-dom";
 // import * as actions from './actions/thunkage'
 
@@ -21,6 +21,11 @@ class NewSudoku extends Component {
     console.log("new path");
     return <SudokuBoard game={this.props.game}/>;
   }
+
+  componentDidUpdate(){
+    if (!!this.props.game.solution) this.props.actions.checkGame(this.props.game)
+  }
+
 }
 
 function mapStateToProps(state, ownProps) {

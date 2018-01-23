@@ -35,6 +35,8 @@ export default function gameReducer(state = {
               current_board: action.current_board
             })
           });
+        case "ADD_SOLUTION":
+          return Object.assign({}, state, {game: Object.assign({}, state.game, {solution: action.payload})})
         case "LIST_GAMES":
           return Object.assign({}, state, { savedGames: action.payload }, { loading: false });
         case "LOAD_GAME":
