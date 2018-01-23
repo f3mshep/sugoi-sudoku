@@ -1,13 +1,15 @@
 import React from 'react'
 import InputPopover from "../components/InputPopover";
 import CloseButton from "../components/CloseButton"
+import CellDiv from "../components/CellDiv"
 
 class UserInputCell extends React.Component {
   //smart component that handles user interaction
   constructor(props) {
     super(props);
     this.state = {
-      showingInput: false
+      showingInput: false,
+      divClass: "span-value clicky"
     };
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -29,8 +31,8 @@ class UserInputCell extends React.Component {
     this.setState({ showingInput: true });
   }
 
-  handleInputAndHide(event, value){
-    this.props.handleInput(event, value)
+  handleInputAndHide(event, value) {
+    this.props.handleInput(event, value);
     setTimeout(this.hideInput.bind(this), 10);
   }
 
@@ -52,6 +54,10 @@ class UserInputCell extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ divClass: "span-value clicky show" });
+  }
+
   render() {
     return (
       <td
@@ -65,7 +71,7 @@ class UserInputCell extends React.Component {
         {this.hasNumber() ? (
           <CloseButton handleInput={this.handleInputAndHide.bind(this)} />
         ) : null}
-        <span className="span-value">{this.props.value}</span>
+        <CellDiv divClass={this.state.divClass} value={this.props.value} />
       </td>
     );
   }

@@ -35,7 +35,7 @@ body {
 /* cell value animation */
 
 .span-value{
-  transform: scale(0.1);
+  transform: scale(0);
   transition: 0.1s ease-in;
 }
 
@@ -50,7 +50,6 @@ body {
 }
 
 .sudoku-grid .cell {
-  transition: background-color 0.2s ease;
   cursor: pointer;
   margin-top: -1px;
   margin-left: -1px;
@@ -70,7 +69,7 @@ body {
   background-color: #043d4b3a
 }
 
-.sudoku-grid .clicky .span-value  {
+div.span-value.clicky  span  {
   color: rgb(21, 152, 121);
 }
 
