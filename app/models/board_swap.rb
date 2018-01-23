@@ -49,7 +49,6 @@ end
       gridIndex = [0,3,6].sample
       i = rand(3) + gridIndex
       j = rand(3) + gridIndex
-      print gridIndex, i, j
       deep_copy[i], deep_copy[j] = deep_copy[j], deep_copy[i]
       matrix = deep_copy
     end

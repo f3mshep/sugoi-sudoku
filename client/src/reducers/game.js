@@ -1,4 +1,5 @@
-const EMPTY_BOARD =   [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+const EMPTY_BOARD =
+[[0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -8,24 +9,24 @@ const EMPTY_BOARD =   [[0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
+const INITIAL_GAME = {
+    id: null,
+    difficulty: "",
+    solution: EMPTY_BOARD,
+    initial_board: EMPTY_BOARD,
+    current_board: EMPTY_BOARD }
+
 
 
 export default function gameReducer(state = {
   loading: false,
   savedGames: [],
-  game: {
-    id: null,
-    difficulty: "",
-    solution: EMPTY_BOARD,
-    initial_board: EMPTY_BOARD,
-    current_board: EMPTY_BOARD } },
+  game: INITIAL_GAME },
     action)
     {
       switch (action.type) {
         case "LOADING_GAME":
-          return Object.assign({}, state, {
-            loading: true
-          });
+          return Object.assign({}, state, {loading: true}, {game: INITIAL_GAME});
         case "FETCH_NEW_GAME":
           return Object.assign({}, state, { game: action.payload }, { loading: false });
         case "UPDATE_BOARD":

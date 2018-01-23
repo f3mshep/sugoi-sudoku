@@ -15,7 +15,6 @@ export function fetchGame(level){
 
 function saveGame(gamePayload){
   return function(dispatch){
-    dispatch({ type: "LOADING_GAME" });
     if(gamePayload.id){
         return fetch("/games/" + gamePayload.id, {
           method: "PUT",
@@ -52,7 +51,6 @@ export function saveAndList(gamePayload) {
 
 export function listSavedGames(){
   return function(dispatch){
-    dispatch({ type: "LOADING_GAME" });
     return fetch("/games")
     .then(response => response.json())
     .then(games =>{
