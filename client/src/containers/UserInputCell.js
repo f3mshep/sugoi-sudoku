@@ -64,8 +64,13 @@ class UserInputCell extends React.Component {
   //add CellTransition Dumb Component
   //add CloseButton Function
 
+  findClassName(){
+    if(this.props.locked) return "cell locked"
+    return this.state.showingInput ? "cell" : "cell clicky"
+  }
+
   render() {
-    return <td ref={this.setWrapperRef} onClick={this.showInput.bind(this)} className={this.state.showingInput ? "cell" : "cell clicky"}>
+    return <td ref={this.setWrapperRef} onClick={this.showInput.bind(this)} className={this.findClassName()}>
         <CellTransition showingInput={this.state.showingInput} handleInput={this.handleInputAndHide.bind(this)} />
         {this.hasNumber() ? <CloseButton handleInput={this.handleInputAndHide.bind(this)} /> : null}
         <CellDiv divClass={this.state.divClass} value={this.props.value} />

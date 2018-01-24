@@ -92,6 +92,10 @@ div.span-value.clicky  span  {
   color: rgb(21, 152, 121);
 }
 
+div.span-value.locked  span  {
+  color: rgb(21, 152, 121);
+}
+
 .clue {
   background: #bfc8cb7b;
   cursor: not-allowed;

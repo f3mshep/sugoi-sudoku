@@ -55,6 +55,7 @@ class CellLogic extends React.Component {
   render() {
     let chosenOne = !this.props.clue ? (
       <UserInputCell
+        locked={this.props.game.locked}
         handleInput={this.handleInput.bind(this)}
         value={this.setValue()}
       />
