@@ -11,6 +11,7 @@ class UserInputCell extends React.Component {
     super(props);
     this.state = {
       showingInput: false,
+      showingClose: false,
       divClass: "span-value clicky"
     };
     this.setWrapperRef = this.setWrapperRef.bind(this);
@@ -30,7 +31,7 @@ class UserInputCell extends React.Component {
   }
 
   showInput() {
-    this.setState({ showingInput: true });
+    if (!this.props.locked) this.setState({ showingInput: true });
   }
 
   handleInputAndHide(event, value) {
@@ -42,8 +43,11 @@ class UserInputCell extends React.Component {
     this.wrapperRef = node;
   }
 
-  hasNumber() {
-    return this.props.value > 0;
+  shouldCloseExist(nextProps) {
+    const showClose = nextProps.value > 0 && !nextProps.locked
+    this.setState({
+      showingClose: showClose
+    })
   }
 
   handleClickOutside(event) {
@@ -57,22 +61,20 @@ class UserInputCell extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ divClass: "span-value clicky show" });
+    this.shouldCloseExist(nextProps)
+    this.setClassName(nextProps)
   }
 
-  //add className function
-  //add CellTransition Dumb Component
-  //add CloseButton Function
-
-  findClassName(){
-    if(this.props.locked) return "cell locked"
-    return this.state.showingInput ? "cell" : "cell clicky"
+  setClassName(nextProps){
+    debugger
+    const chosenClass = nextProps.locked? "span-value show locked" : "span-value show clicky"
+    this.setState({divClass: chosenClass})
   }
 
   render() {
-    return <td ref={this.setWrapperRef} onClick={this.showInput.bind(this)} className={this.findClassName()}>
+    return <td ref={this.setWrapperRef} onClick={this.showInput.bind(this)} className='cell'>
         <CellTransition showingInput={this.state.showingInput} handleInput={this.handleInputAndHide.bind(this)} />
-        {this.hasNumber() ? <CloseButton handleInput={this.handleInputAndHide.bind(this)} /> : null}
+        <CloseButton displaying={this.state.showingClose} handleInput={this.handleInputAndHide.bind(this)} />
         <CellDiv divClass={this.state.divClass} value={this.props.value} />
       </td>;
   }

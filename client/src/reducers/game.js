@@ -12,7 +12,6 @@ const EMPTY_BOARD =
 const INITIAL_GAME = {
     id: null,
     difficulty: "",
-    locked: false,
     solution: EMPTY_BOARD,
     initial_board: EMPTY_BOARD,
     current_board: EMPTY_BOARD }
@@ -21,13 +20,14 @@ const INITIAL_GAME = {
 
 export default function gameReducer(state = {
   loading: false,
+  locked: false,
   savedGames: [],
   game: INITIAL_GAME },
     action)
     {
       switch (action.type) {
         case "LOADING_GAME":
-          return Object.assign({}, state, {loading: true}, {game: INITIAL_GAME});
+          return Object.assign({}, state, {loading: true, locked: false}, {game: INITIAL_GAME});
         case "FETCH_NEW_GAME":
           return Object.assign({}, state, { game: action.payload }, { loading: false });
         case "UPDATE_BOARD":
@@ -39,7 +39,7 @@ export default function gameReducer(state = {
         case "ADD_SOLUTION":
           return Object.assign({}, state, {game: Object.assign({}, state.game, {solution: action.payload})})
         case "SHOW_SOLUTION":
-          return Object.assign({}, state, {game: Object.assign({}, state.game, {locked:true}, {current_board: state.game.solution})})
+          return Object.assign({}, state, {locked: true}, {game: Object.assign({}, state.game, {current_board: state.game.solution})})
         case "LIST_GAMES":
           return Object.assign({}, state, { savedGames: action.payload }, { loading: false });
         case "LOAD_GAME":

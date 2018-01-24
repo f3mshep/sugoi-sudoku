@@ -55,7 +55,7 @@ class CellLogic extends React.Component {
   render() {
     let chosenOne = !this.props.clue ? (
       <UserInputCell
-        locked={this.props.game.locked}
+        locked={this.props.locked}
         handleInput={this.handleInput.bind(this)}
         value={this.setValue()}
       />
@@ -70,7 +70,8 @@ class CellLogic extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    game: state.game.game
+    game: state.game.game,
+    locked: state.game.locked
   };
 }
 
