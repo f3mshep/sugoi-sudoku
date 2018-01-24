@@ -2,9 +2,11 @@
 [] Clean up Game Controller to use strong params
 [] FIND A BETTER PLACE FOR CHECK API ENDPOINT REQUEST
 [] Get Show solution button working
+    -have current_board become solution board
+    -add class that makes clicky become red
 [] Clean up errors
 [] Page change transition?
-[] Input load needs to hide number if existing
+[x] Input load needs to hide number if existing
 
 #Backlog
 

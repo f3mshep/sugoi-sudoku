@@ -34,6 +34,10 @@ class UserButtons extends React.Component{
     this.props.actions.inputActions.resetBoard()
   }
 
+  showSolution(){
+    this.props.actions.inputActions.showSolution()
+  }
+
   componentDidMount(){
     this.props.actions.thunkActions.listSavedGames()
   }
@@ -43,8 +47,7 @@ class UserButtons extends React.Component{
         <SaveAlert disableAlert={this.disableAlert.bind(this)} alert={this.state.alert} />
         <UserButton callback={this.saveGame.bind(this)} value={"Save Game"} />
         <UserButton callback={this.resetBoard.bind(this)} value={"Reset Game"} />
-        {/* <UserButton callback={this.loadGame.bind(this)} value={'Load'}/> */}
-        <UserButton value={"Show Solution"} />
+        <UserButton callback={this.showSolution.bind(this)} value={"Show Solution"} />
       </div>;
   }
 

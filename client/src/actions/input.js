@@ -8,3 +8,7 @@ export function changeBoard(outter, inner, value, board){
 export function resetBoard(){
   return {type: "RESET_BOARD"}
 }
+
+export function showSolution(){
+  return {type: "SHOW_SOLUTION"}
+}
