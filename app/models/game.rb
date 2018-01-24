@@ -1,6 +1,7 @@
 class Game < ApplicationRecord
   serialize :initial_board, Array
   serialize :current_board, Array
+  serialize :solution, Array
 
   def self.generate_game(level)
     case level

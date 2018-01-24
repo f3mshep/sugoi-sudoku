@@ -60,7 +60,7 @@ export function listSavedGames(){
 export function checkGame(gamePayload){
   return function(dispatch){
     return fetch("/check", {
-          method: "PUT",
+          method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ game: gamePayload })
         })

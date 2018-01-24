@@ -23,7 +23,12 @@ class GamesController < ApplicationController
   end
 
   def check
-    # POST api/game/check/id with JSON payload of game, will return true or false
+    # GET /check with JSON payload of solution
+    @game = Game.new
+    @game.initial_board = params[:game][:initial_board]
+    @game.current_board = params[:game][:current_board]
+    @game.solve
+    render json: @game
   end
 
   def update

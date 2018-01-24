@@ -18,12 +18,18 @@ class NewSudoku extends Component {
   }
 
   render() {
-    console.log("new path");
+    this.fetchSolution()
     return <SudokuBoard game={this.props.game}/>;
   }
 
-  componentDidUpdate(){
-    if (!!this.props.game.solution) this.props.actions.checkGame(this.props.game)
+  fetchSolution(){
+    //also this is gross, find a better place to stick this than render
+
+    //lol null comparison wtf actually.
+    //code was this.props.game.solution === null
+    if (this.props.game.solution.length < 1) {
+      this.props.actions.checkGame(this.props.game);
+    }
   }
 
 }
@@ -39,7 +45,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       loadGame: bindActionCreators(loadGame, dispatch),
-      fetchGame: bindActionCreators(fetchGame, dispatch)
+      fetchGame: bindActionCreators(fetchGame, dispatch),
+      checkGame: bindActionCreators(checkGame, dispatch)
     }
   };
 }
