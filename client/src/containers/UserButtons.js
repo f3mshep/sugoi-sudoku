@@ -26,13 +26,6 @@ class UserButtons extends React.Component{
     this.props.actions.thunkActions.saveAndList(this.props.game)
   }
 
-  loadGame(id){
-    // TODO: Display a list of most recent saved games by date, use bootstrap
-    // list button https://v4-alpha.getbootstrap.com/components/button-group/
-    console.log('load fired')
-    this.props.actions.thunkActions.loadGame(id)
-  }
-
   loadList(){
     this.props.actions.thunkActions.listSavedGames()
   }
