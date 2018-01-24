@@ -1,11 +1,11 @@
 #Essential
+[] Clean up Game Controller to use strong params
+[] Get Show solution button working
+[] Clean up errors
+[] Page change transition?
 
-[x]Style user input buttons
-[x]Make DB/Store track game difficulty, and track difficulty in difficulty bar - load call the show action
-[x] Fix issue with path - choosing a difficulty after loading a game is messed up
-[]add animation if game is saved
+#Backlog
 
-#Do after scheduling assessment
 []Page transition animation
 []Add a seperate check function to make loading board faster
 [x]Create a board flopper and integrate it into the current #generate_game method
@@ -19,7 +19,7 @@
 []Change CSS to make table responsive
 []Modal to enter save game
 []
-
-#Wishlist?
 []Add rules handling to grid
+
+
 

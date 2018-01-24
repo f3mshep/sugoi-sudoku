@@ -9,9 +9,9 @@ import Home from './routes/Home'
 import Sudoku from './routes/Sudoku'
 import FooterBar from "./components/FooterBar.js";
 import { withRouter } from "react-router-dom";
+
 const App = props => (
   <div className="app">
-    <NavBar />
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />

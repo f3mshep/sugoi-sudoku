@@ -1,7 +1,13 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
-const NavBar = () => (
+const DEFAULT = (
+  <NavLink className="nav-link" to="/sudoku/new/easy">
+    Play Sudoku!
+  </NavLink>
+);
+
+const NavBar = (props) => (
   <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <NavLink className="navbar-brand" to="/">
@@ -22,9 +28,7 @@ const NavBar = () => (
         <div className="collapse mx-auto navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/sudoku/new/easy">
-                Play Sudoku!
-              </NavLink>
+              {props.value? props.value : DEFAULT}
             </li>
           </ul>
         </div>
