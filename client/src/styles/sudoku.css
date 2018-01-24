@@ -15,11 +15,13 @@ body {
 .make-absolute {
   text-align: center;
   position: absolute;
+  z-index: 2000;
 }
 
 .input-popover-enter {
   position: absolute;
   transform: scale(0);
+  z-index: 2000;
 }
 
 .input-popover-enter.input-popover-enter-active {
@@ -30,6 +32,7 @@ body {
 .input-popover-leave {
   position: absolute;
   transform: scale(1);
+  z-index: 2000;
 }
 
 .input-popover-leave.input-popover-leave-active {
