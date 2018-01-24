@@ -14,14 +14,6 @@ import {
 
 const Sudoku = () => (
   <div>
-     {/* <div className="container">
-       <div className="row justify-content-center">
-         <div className="top-buffer col-md-10 content-box thicc">
-           <h2 className='header-text'>Saved Games</h2>
-           <hr/>
-         </div>
-       </div>
-     </div> */}
     <Router>
       <div>
         <NavBar value={<LoadButtonContainer/>}/>

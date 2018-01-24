@@ -4,7 +4,6 @@ import { bindActionCreators } from "redux";
 import * as thunkActions from "../actions/thunkage";
 import * as inputActions from "../actions/input"
 import UserButton from '../components/UserButton'
-import LoadButtonContainer from './LoadButtonContainer';
 import { withRouter } from "react-router-dom";
 import SaveAlert from "../components/SaveAlert"
 
@@ -34,14 +33,21 @@ class UserButtons extends React.Component{
     this.props.actions.inputActions.resetBoard()
   }
 
-  showSolution(){
-    //if solution doesn't exist yet, call itself after waiting 50 ms
+  showSolution(recursionCount){
+    //if solution doesn't exist yet, call itself after waiting 10 ms
+    //watch performance on heroku, consider re-write
+    const that = this
+    ++recursionCount
+    if (recursionCount > 10){
+      this.props.actions.thunkActions.checkGame(this.props.game)
+      recursionCount = 0
+    }
     if (this.props.game.solution.length > 1){
       this.props.actions.inputActions.showSolution()
       return true
     }
     else {
-      setTimeout(this.showSolution.bind(this), 10)
+      setTimeout(that.showSolution.bind(that, recursionCount), 10)
     }
   }
 
@@ -54,7 +60,7 @@ class UserButtons extends React.Component{
         <SaveAlert disableAlert={this.disableAlert.bind(this)} alert={this.state.alert} />
         <UserButton callback={this.saveGame.bind(this)} value={"Save Game"} />
         <UserButton callback={this.resetBoard.bind(this)} value={"Reset Game"} />
-        <UserButton callback={this.showSolution.bind(this)} value={"Show Solution"} />
+        <UserButton callback={this.showSolution.bind(this, 0)} value={"Show Solution"} />
       </div>;
   }
 

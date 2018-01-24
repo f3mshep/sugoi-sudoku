@@ -4,10 +4,10 @@
 [] brand link not working
 [] Get Show solution button working
     -have current_board become solution board [x]
-    -add class that makes clicky become red, can't change []
+    -add class that removes clicky, can't change []
 [] Clean up errors
 [] Page change transition?
-[] make loadSolution NOT recursive or at least have an exit
+[x] look into showSolution in UserButton container
 [x] Input load needs to hide number if existing
 
 #Backlog
