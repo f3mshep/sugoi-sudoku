@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchGame, loadGame, checkGame } from "../actions/thunkage";
 import { withRouter } from "react-router-dom";
+import NavBar from '../components/NavBar'
+import LoadButtonContainer from "../containers/LoadButtonContainer"
 // import * as actions from './actions/thunkage'
 
 class NewSudoku extends Component {
@@ -20,15 +22,16 @@ class NewSudoku extends Component {
   }
 
   render() {
-    this.fetchSolution()
-    return <SudokuBoard game={this.props.game}/>;
+    return <div>
+      <NavBar value={<LoadButtonContainer />} />
+      <SudokuBoard game={this.props.game}/>
+    </div>;
   }
 
   fetchSolution(){
     //lol null comparison wtf actually.
     //code was this.props.game.solution === null
     if (this.props.game.solution.length < 1) {
-      debugger
       this.props.actions.checkGame(this.props.game);
     }
   }

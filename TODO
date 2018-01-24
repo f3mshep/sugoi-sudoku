@@ -1,7 +1,8 @@
 #Essential
 [] Clean up Game Controller to use strong params
 [x] FIND A BETTER PLACE FOR CHECK API ENDPOINT REQUEST
-[] brand link not working
+[x] brand link not working
+    -React-Router-4 nested routing system is strange.
 [] Get Show solution button working
     -have current_board become solution board [x]
     -add class that removes clicky, can't change []

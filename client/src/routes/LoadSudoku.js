@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchGame, loadGame } from "../actions/thunkage";
 import { withRouter } from "react-router-dom";
-
+import NavBar from '../components/NavBar'
+import LoadButtonContainer from "../containers/LoadButtonContainer"
 
 class LoadSudoku extends Component {
   componentDidMount() {
@@ -18,8 +19,10 @@ class LoadSudoku extends Component {
   }
 
   render() {
-    console.log('load path')
-    return <SudokuBoard game={this.props.game} />
+    return <div>
+      <NavBar value={<LoadButtonContainer/>}/>
+      <SudokuBoard game={this.props.game} />
+    </div>;
   }
 }
 

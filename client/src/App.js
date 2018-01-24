@@ -3,7 +3,6 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import NavBar from './components/NavBar'
 import About from './routes/About'
 import Home from './routes/Home'
 import Sudoku from './routes/Sudoku'

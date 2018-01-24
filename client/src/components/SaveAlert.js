@@ -9,9 +9,6 @@ const alert = [{
 
 
 class SaveAlert extends React.Component{
-  constructor(props){
-    super(props)
-  }
 
   onAlertDismissed(){
     this.props.disableAlert()
@@ -21,8 +18,6 @@ class SaveAlert extends React.Component{
       const alertBox = this.props.alert ? <AlertList dismissTitle="Begone!" onDismiss={this.onAlertDismissed.bind(this)} alerts={alert} /> : null;
       return alertBox;
     }
-
-
 
 }
 
