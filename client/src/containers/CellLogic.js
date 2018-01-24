@@ -16,7 +16,6 @@ class CellLogic extends React.Component {
     this.findindexOutter();
     this.findindexInner();
     this.state = {
-      // showingInput: false,
       square: this.props.square
     };
   }
@@ -35,7 +34,8 @@ class CellLogic extends React.Component {
     if (this.props.square > 0) {
       return this.props.square;
     } else {
-      return "  ";
+      //the following is JSX for RENDER A BLANK SPACE
+      return '\u00A0';
     }
   }
 

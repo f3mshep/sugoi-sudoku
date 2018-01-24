@@ -3,16 +3,17 @@
 [x] FIND A BETTER PLACE FOR CHECK API ENDPOINT REQUEST
 [x] brand link not working
     -React-Router-4 nested routing system is strange.
-[] Get Show solution button working
+[x] Get Show solution button working
     -have current_board become solution board [x]
-    -add class that removes clicky, can't change []
-[] Clean up errors
+    -add class that removes clicky, can't change [x]
+[x] Clean up errors
 [] Page change transition?
 [x] look into showSolution in UserButton container
 [x] Input load needs to hide number if existing
 
 #Backlog
-
+[] Make sudoku grid resposive
+[] get rid of collapse function in NavBar
 []Page transition animation
 [x]Add a seperate check function to make loading board faster
 [x]Create a board flopper and integrate it into the current #generate_game method

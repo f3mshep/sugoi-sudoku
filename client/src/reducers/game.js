@@ -52,7 +52,7 @@ export default function gameReducer(state = {
                 { time_created: action.payload.time_created }
               ) });
         case "RESET_BOARD":
-          return Object.assign({}, state, {
+          return Object.assign({}, state, {locked: false}, {
             game: Object.assign({}, state.game, {
               current_board: state.game.initial_board
             })

@@ -1,19 +1,14 @@
 import React from 'react'
-import InputPopover from "../components/InputPopover";
 import CloseButton from "../components/CloseButton"
 import CellDiv from "../components/CellDiv"
-import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 import CellTransition from '../components/CellTransition'
 
 class UserInputCell extends React.Component {
   //smart component that handles user interaction
+  //state initially rendered without show to add a pretty pop-in animation
   constructor(props) {
     super(props);
-    this.state = {
-      showingInput: false,
-      showingClose: false,
-      divClass: "span-value clicky"
-    };
+    this.state = { showingInput: false, showingClose: false, divClass: "span-value clicky" };
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
@@ -66,7 +61,6 @@ class UserInputCell extends React.Component {
   }
 
   setClassName(nextProps){
-    debugger
     const chosenClass = nextProps.locked? "span-value show locked" : "span-value show clicky"
     this.setState({divClass: chosenClass})
   }

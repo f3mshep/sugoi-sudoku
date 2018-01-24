@@ -46,7 +46,7 @@ body {
 .span-value{
   position: relative;
   transform: scale(0);
-  transition: 0.3s ease-in;
+  transition: 0.2s ease-in;
 }
 
 .span-value.show{
@@ -163,11 +163,21 @@ div.span-value.locked  span  {
 .close-button {
   cursor: pointer;
   display: none!important;
-  margin-left: 0px;
+  margin-left: 3px;
+  margin-top: -1px;
   z-index: 1000;
   position: absolute;
   display: block;
-  font-size: .8em;
+  font-size: 1.5em;
+}
+
+.close {
+  color: black;
+  opacity: .7;
+}
+
+.close-button:hover{
+  color: rgb(240, 98, 98);
 }
 
 .cell:hover .close-button{
