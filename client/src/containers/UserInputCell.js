@@ -3,6 +3,7 @@ import InputPopover from "../components/InputPopover";
 import CloseButton from "../components/CloseButton"
 import CellDiv from "../components/CellDiv"
 import ReactCSSTransitionGroup from "react-addons-css-transition-group"
+import CellTransition from '../components/CellTransition'
 
 class UserInputCell extends React.Component {
   //smart component that handles user interaction
@@ -59,11 +60,13 @@ class UserInputCell extends React.Component {
     this.setState({ divClass: "span-value clicky show" });
   }
 
+  //add className function
+  //add CellTransition Dumb Component
+  //add CloseButton Function
+
   render() {
     return <td ref={this.setWrapperRef} onClick={this.showInput.bind(this)} className={this.state.showingInput ? "cell" : "cell clicky"}>
-        <ReactCSSTransitionGroup component="div" className="make-absolute" transitionName="input-popover" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-          {this.state.showingInput ? <InputPopover key={1} handleInput={this.handleInputAndHide.bind(this)} /> : null}
-        </ReactCSSTransitionGroup>
+        <CellTransition showingInput={this.state.showingInput} handleInput={this.handleInputAndHide.bind(this)} />
         {this.hasNumber() ? <CloseButton handleInput={this.handleInputAndHide.bind(this)} /> : null}
         <CellDiv divClass={this.state.divClass} value={this.props.value} />
       </td>;
