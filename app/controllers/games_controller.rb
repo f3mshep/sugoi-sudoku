@@ -11,6 +11,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.create
     #todo: get the .require.permit working
+    binding.pry
     @game.initial_board = params[:game][:initial_board]
     @game.current_board = params[:game][:current_board]
     @game.difficulty = params[:game][:difficulty]
@@ -50,6 +51,10 @@ class GamesController < ApplicationController
 
   def game_setter
     @game = Game.find_by(id: params[:id])
+  end
+
+  def game_params
+    params.require(:game).permit(:difficulty, {solution_attributes:[[],[],[],[],[],[],[],[],[]]},{current_board:[[],[],[],[],[],[],[],[],[]]}, {initial_board:[[],[],[],[],[],[],[],[],[]]})
   end
 
 end
