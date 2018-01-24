@@ -14,7 +14,7 @@ class LoadButtonContainer extends React.Component{
   render(){
 
     return <div className="dropdown">
-        <button className="btn btn-secondary dropdown-toggle">Load Game</button>
+        <button className="btn btn-primary dropdown-toggle">Load Game</button>
         <div className="dropdown-content">
           {this.showGames()}
         </div>

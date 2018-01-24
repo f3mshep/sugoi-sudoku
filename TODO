@@ -1,5 +1,6 @@
 #Essential
 [] Clean up Game Controller to use strong params
+[] FIND A BETTER PLACE FOR CHECK API ENDPOINT REQUEST
 [] Get Show solution button working
 [] Clean up errors
 [] Page change transition?
