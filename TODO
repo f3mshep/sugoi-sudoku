@@ -1,23 +1,25 @@
 #Essential
 [] Clean up Game Controller to use strong params
-[] FIND A BETTER PLACE FOR CHECK API ENDPOINT REQUEST
+[x] FIND A BETTER PLACE FOR CHECK API ENDPOINT REQUEST
+[] brand link not working
 [] Get Show solution button working
-    -have current_board become solution board
-    -add class that makes clicky become red
+    -have current_board become solution board [x]
+    -add class that makes clicky become red, can't change []
 [] Clean up errors
 [] Page change transition?
+[] make loadSolution NOT recursive or at least have an exit
 [x] Input load needs to hide number if existing
 
 #Backlog
 
 []Page transition animation
-[]Add a seperate check function to make loading board faster
+[x]Add a seperate check function to make loading board faster
 [x]Create a board flopper and integrate it into the current #generate_game method
 []Add a function that checks for a won board state
-[]Add board_solution to schema
-[]update react-redux to work with board_solution
+[x]Add board_solution to schema
+[x]update react-redux to work with board_solution
 [x]Organize ruby backend
-[]Make insane path actually give insane
+[x]Make insane path actually give insane
 []Organize CSS
 []Change React app title in title bar
 []Change CSS to make table responsive

@@ -35,7 +35,14 @@ class UserButtons extends React.Component{
   }
 
   showSolution(){
-    this.props.actions.inputActions.showSolution()
+    //if solution doesn't exist yet, call itself after waiting 50 ms
+    if (this.props.game.solution.length > 1){
+      this.props.actions.inputActions.showSolution()
+      return true
+    }
+    else {
+      setTimeout(this.showSolution.bind(this), 10)
+    }
   }
 
   componentDidMount(){

@@ -8,7 +8,9 @@ import { withRouter } from "react-router-dom";
 
 class NewSudoku extends Component {
   componentDidMount() {
-    this.props.actions.fetchGame(this.props.difficulty);
+    const that = this
+    this.props.actions.fetchGame(this.props.difficulty)
+    .then(()=>that.fetchSolution())
   }
 
   componentWillReceiveProps(nextProps) {
@@ -23,11 +25,10 @@ class NewSudoku extends Component {
   }
 
   fetchSolution(){
-    //also this is gross, find a better place to stick this than render
-
     //lol null comparison wtf actually.
     //code was this.props.game.solution === null
     if (this.props.game.solution.length < 1) {
+      debugger
       this.props.actions.checkGame(this.props.game);
     }
   }
