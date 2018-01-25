@@ -59,6 +59,7 @@ end
 
   def game_params
     # this doesn't work yet
+    # I can change actionpack gem with this PR: https://github.com/rails/rails/pull/23650/files
     params.require(:game).permit(:difficulty, {solution_attributes:[[],[],[],[],[],[],[],[],[]]},{current_board:[[],[],[],[],[],[],[],[],[]]}, {initial_board:[[],[],[],[],[],[],[],[],[]]})
   end
 
