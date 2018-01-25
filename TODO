@@ -1,5 +1,6 @@
 #Essential
-[] Clean up Game Controller to use strong params
+[-] Clean up Game Controller to use strong params
+    -There appears to be no way to permit nested arrays from a seperate front end
 [x] FIND A BETTER PLACE FOR CHECK API ENDPOINT REQUEST
 [x] brand link not working
     -React-Router-4 nested routing system is strange.
@@ -8,6 +9,7 @@
     -add class that removes clicky, can't change [x]
 [x] Clean up errors
 [] Page change transition?
+    -It would looks too busy/gross
 [x] look into showSolution in UserButton container
 [x] Input load needs to hide number if existing
 
