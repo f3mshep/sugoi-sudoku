@@ -4,8 +4,8 @@ import CellDiv from "../components/CellDiv"
 import CellTransition from '../components/CellTransition'
 
 class UserInputCell extends React.Component {
-  //smart component that handles user interaction
-  //state initially rendered without show to add a pretty pop-in animation
+  //smart component that handles user interaction with each cell
+  //state initially rendered without being shown for pretty animation
   constructor(props) {
     super(props);
     this.state = { showingInput: false, showingClose: false, divClass: "span-value clicky" };

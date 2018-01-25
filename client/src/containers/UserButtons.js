@@ -8,6 +8,8 @@ import { withRouter } from "react-router-dom";
 import SaveAlert from "../components/SaveAlert"
 
 class UserButtons extends React.Component{
+  //Smart Component that controls user interface below board.
+  //Passes save, reset, and show solution functions to 'dumb' components
   constructor(props){
     super(props)
 

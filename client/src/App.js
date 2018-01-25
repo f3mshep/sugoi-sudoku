@@ -7,6 +7,7 @@ import About from './routes/About'
 import Home from './routes/Home'
 import Sudoku from './routes/Sudoku'
 import FooterBar from "./components/FooterBar.js";
+import NotFound from './routes/NotFound'
 import { withRouter } from "react-router-dom";
 
 const App = props => (
@@ -15,6 +16,7 @@ const App = props => (
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
       <Route path={`/sudoku`} component={Sudoku} />
+      <Route component={NotFound} />
     </Switch>
     <FooterBar />
   </div>
