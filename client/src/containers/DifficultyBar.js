@@ -4,6 +4,8 @@ import RadioToggle from '../components/RadioToggle'
 const difficulties = ['easy', 'medium', 'hard', 'insanity']
 
 class DifficultyBar extends React.Component {
+  //Handles user toggling between different difficulties. Tells toggle button
+  //if it is active
 
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

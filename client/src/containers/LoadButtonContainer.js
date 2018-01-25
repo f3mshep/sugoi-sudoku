@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { loadGame } from "../actions/thunkage"
 
 class LoadButtonContainer extends React.Component{
+  //Handles passing saved games down to dropdown menu component
 
   loadGame(id) {
     this.props.actions.loadGame(id)

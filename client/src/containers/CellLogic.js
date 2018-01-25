@@ -40,7 +40,7 @@ class CellLogic extends React.Component {
   }
 
   handleInput(event, value) {
-    //new value is an optional argument that can be used to 'manually' set the
+    //value is an optional argument that can be used to 'manually' set the
     //value of the cell
     let newBoard = JSON.parse(JSON.stringify(this.props.game.current_board))
     const newValue = value || parseInt(event.target.innerHTML, 10)
