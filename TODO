@@ -1,7 +1,8 @@
 #Essential
 [] Change React app title in title bar
 [] Debug heroku app
-
+  -Hard and Insanity requests will cause a timeout
+  -use sidekiq?
 #Backlog
 [] Make sudoku grid resposive
 [] get rid of collapse function in NavBar

@@ -19,6 +19,7 @@ class NewSudoku extends Component {
     if (nextProps.difficulty !== this.props.difficulty) {
       this.props.actions.fetchGame(nextProps.difficulty);
     }
+    this.fetchSolution(nextProps)
   }
 
   render() {
@@ -28,11 +29,12 @@ class NewSudoku extends Component {
     </div>;
   }
 
-  fetchSolution(){
+  fetchSolution(nextProps){
     //lol null comparison wtf actually.
     //code was this.props.game.solution === null
-    if (this.props.game.solution.length < 1) {
-      this.props.actions.checkGame(this.props.game);
+    const props = nextProps || this.props
+    if (props.game.solution.length < 1) {
+      props.actions.checkGame(props.game);
     }
   }
 

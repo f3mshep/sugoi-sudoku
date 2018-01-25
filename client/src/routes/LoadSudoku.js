@@ -2,20 +2,34 @@ import React, { Component } from "react";
 import SudokuBoard from "../components/SudokuBoard";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchGame, loadGame } from "../actions/thunkage";
+import { fetchGame, loadGame, checkGame } from "../actions/thunkage";
 import { withRouter } from "react-router-dom";
 import NavBar from '../components/NavBar'
 import LoadButtonContainer from "../containers/LoadButtonContainer"
 
 class LoadSudoku extends Component {
+
+  fetchSolution(nextProps) {
+    //lol null comparison wtf actually.
+    //code was this.props.game.solution === null
+    const props = nextProps || this.props
+    if (props.game.solution.length < 1) {
+      debugger
+      props.actions.checkGame(props.game);
+    }
+  }
+
   componentDidMount() {
-    this.props.actions.loadGame(this.props.id);
+    const that = this
+    this.props.actions.loadGame(this.props.id)
+    .then(() => that.fetchSolution())
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.id !== this.props.id) {
       this.props.actions.loadGame(nextProps.id);
     }
+    this.fetchSolution(nextProps)
   }
 
   render() {
@@ -34,7 +48,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       loadGame: bindActionCreators(loadGame, dispatch),
-      fetchGame: bindActionCreators(fetchGame, dispatch)
+      fetchGame: bindActionCreators(fetchGame, dispatch),
+      checkGame: bindActionCreators(checkGame, dispatch)
     }
   };
 }

@@ -7,6 +7,9 @@ import UserButton from '../components/UserButton'
 import { withRouter } from "react-router-dom";
 import SaveAlert from "../components/SaveAlert"
 
+const DISABLED = "btn btn-secondary disabled"
+const ENABLED = "btn btn-secondary"
+
 class UserButtons extends React.Component{
   //Smart Component that controls user interface below board.
   //Passes save, reset, and show solution functions to 'dumb' components
@@ -14,7 +17,8 @@ class UserButtons extends React.Component{
     super(props)
 
     this.state = {
-      alert: false
+      alert: false,
+      solutionStatus: DISABLED
     }
   }
 
@@ -36,20 +40,18 @@ class UserButtons extends React.Component{
   }
 
   showSolution(recursionCount){
-    //if solution doesn't exist yet, call itself after waiting 10 ms
-    //watch performance on heroku, consider re-write
-    const that = this
-    ++recursionCount
-    if (recursionCount > 10){
-      this.props.actions.thunkActions.checkGame(this.props.game)
-      recursionCount = 0
-    }
+    //failsafe so that if user removes disabled class, they won' cause an error
     if (this.props.game.solution.length > 1){
       this.props.actions.inputActions.showSolution()
-      return true
+    }
+  }
+
+  solutionActive(nextProps){
+    if (nextProps.game.solution.length > 1){
+      this.setState({solutionStatus: ENABLED})
     }
     else {
-      setTimeout(that.showSolution.bind(that, recursionCount), 10)
+      this.setState({solutionStatus: DISABLED})
     }
   }
 
@@ -57,12 +59,16 @@ class UserButtons extends React.Component{
     this.props.actions.thunkActions.listSavedGames()
   }
 
+  componentWillReceiveProps(nextProps){
+    this.solutionActive(nextProps)
+  }
+
   render(){
     return <div className="btn-group thicc" role="group" aria-label="Basic example">
         <SaveAlert disableAlert={this.disableAlert.bind(this)} alert={this.state.alert} />
-        <UserButton callback={this.saveGame.bind(this)} value={"Save Game"} />
-        <UserButton callback={this.resetBoard.bind(this)} value={"Reset Game"} />
-        <UserButton callback={this.showSolution.bind(this, 0)} value={"Show Solution"} />
+        <UserButton buttonClass={ENABLED} callback={this.saveGame.bind(this)} value={"Save Game"} />
+        <UserButton buttonClass={ENABLED} callback={this.resetBoard.bind(this)} value={"Reset Game"} />
+        <UserButton buttonClass={this.state.solutionStatus} callback={this.showSolution.bind(this, 0)} value={"Show Solution"} />
       </div>;
   }
 
