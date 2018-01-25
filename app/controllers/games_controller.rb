@@ -8,14 +8,8 @@ class GamesController < ApplicationController
     #request would look something like  GET api/game/new/medium
   end
 
-def do_something_with_params
-  params.to_unsafe_h.slice
-end
-
   def create
     @game = Game.create
-    #todo: get the .require.permit working
-    binding.pry
     @game.initial_board = params[:game][:initial_board]
     @game.current_board = params[:game][:current_board]
     @game.difficulty = params[:game][:difficulty]
