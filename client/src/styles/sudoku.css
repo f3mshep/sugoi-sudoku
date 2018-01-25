@@ -260,7 +260,9 @@ body {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
+    margin-left: -2.5em;
     display: block;
+    position: absolute;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
