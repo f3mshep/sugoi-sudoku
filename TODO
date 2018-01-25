@@ -1,8 +1,7 @@
 #Essential
 [] Change React app title in title bar
-[] Debug heroku app
-  -Hard and Insanity requests will cause a timeout
-  -use sidekiq?
+[] Make collapsed button clickable
+
 #Backlog
 [] Make sudoku grid resposive
 [] get rid of collapse function in NavBar
@@ -34,3 +33,7 @@ Completed
 [x]Make insane path actually give insane
 [x]Add a seperate check function to make loading board faster
 [x]Create a board flopper and integrate it into the current #generate_game method
+[x] Debug heroku app
+  -Hard and Insanity requests will cause a timeout
+  -use sidekiq?
+  -issue was recursive call, changed it to request solution in WillReceiveProps
