@@ -5,6 +5,8 @@ import WinComponent from '../components/WinComponent'
 import { gameIsWon } from '../actions/input'
 
 class SudokuGlobal extends React.Component{
+  // Pushes changes in store to view. If game is won, displays a won dialoge,
+  // will also manage the logic of a timer.
 
   isDeeplyEqual(leftObj, rightObj){
     return JSON.stringify(leftObj) === JSON.stringify(rightObj)
