@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
-import WinComponent from '../components/WinComponent'
+import ReactModal from '../components/ReactModal'
 import { gameIsWon } from '../actions/input'
 
 class SudokuGlobal extends React.Component{
@@ -26,8 +26,7 @@ class SudokuGlobal extends React.Component{
   }
 
   render(){
-    const winComponent = this.props.isWon? <WinComponent key={1} /> : null
-    return winComponent
+    return <ReactModal isWon={this.props.isWon} />
   }
 }
 
