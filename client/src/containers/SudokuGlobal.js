@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
 import ReactModal from '../components/ReactModal'
 import { gameIsWon } from '../actions/input'
+import { fetchGame } from '../actions/thunkage'
 
 class SudokuGlobal extends React.Component{
   // Pushes changes in store to view. If game is won, displays a won dialoge,
@@ -38,8 +39,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return ({actions:
-    {gameIsWon: bindActionCreators(gameIsWon, dispatch)}
+  return ({actions: {
+      gameIsWon: bindActionCreators(gameIsWon, dispatch),
+      fetchGame: bindActionCreators(fetchGame, dispatch)
+    }
   })
 }
 

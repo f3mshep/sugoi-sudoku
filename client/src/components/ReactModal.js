@@ -1,11 +1,11 @@
-import Modal from 'react-modal'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import React from 'react'
 import WinComponent from './WinComponent'
 
 class ReactModal extends React.Component{
   constructor(props){
       super(props)
-      this.state = { isOpen: false }
+      this.state = { isOpen: false, currentClass: "modal fade" }
       this.setWrapperRef = this.setWrapperRef.bind(this);
       this.handleClickOutside = this.handleClickOutside.bind(this);
     }
@@ -25,7 +25,9 @@ class ReactModal extends React.Component{
     }
 
     handleClickOutside(event) {
-      if (this.wrapperRef && this.state.isOpen && !this.wrapperRef.contains(event.target)) {
+
+      if (this.wrapperRef && this.state.isOpen && this.wrapperRef.contains(event.target)) {
+        console.log('checkmate athiests')
         this.closeModal()
       }
     }
@@ -37,17 +39,28 @@ class ReactModal extends React.Component{
     }
 
     closeModal(){
+      const that = this
       this.setState({isOpen: false})
+      this.setState({ currentClass: "modal fade force-block" })
+      setTimeout(() => {
+        that.setState({ currentClass: "modal show fade" })
+      }, 100);
     }
 
     openModal(){
+      const that = this
       this.setState({isOpen: true})
+      this.setState({currentClass: "modal fade force-block"})
+      setTimeout(() => {
+        that.setState({currentClass: "modal show fade force-block"})
+      }, 10);
     }
 
     render(){
-      return <div ref={this.setWrapperRef} >
-        <Modal isOpen={this.state.isOpen}
-        ><WinComponent /></Modal>
+      return <div ref={this.setWrapperRef} className={this.state.currentClass}>
+        <div  className="modal-dialog">
+          <WinComponent  />
+        </div>
       </div>;
     }
 }

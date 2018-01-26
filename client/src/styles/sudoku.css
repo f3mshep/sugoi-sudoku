@@ -8,7 +8,30 @@ body {
   background-color: #F2F2F2 !important;
 }
 
+/* Modal Animation
 
+.my-modal-enter {
+    height: 0px;
+    position: absolute;
+}
+
+.my-modal-enter.my-modal-enter-active {
+    height: 150px;
+    transition: height .3s ease;
+}
+
+.my-modal-leave.my-modal-leave-active {
+    height: 0px;
+    transition: height .3s ease;
+} */
+
+.force-block {
+  display: block !important;
+}
+
+.modal-dialog {
+  z-index: 2100;
+}
 
 /* Input Cell Animation */
 
