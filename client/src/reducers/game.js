@@ -21,6 +21,7 @@ const INITIAL_GAME = {
 export default function gameReducer(state = {
   loading: false,
   locked: false,
+  isWon: false,
   savedGames: [],
   game: INITIAL_GAME },
     action)
@@ -58,7 +59,7 @@ export default function gameReducer(state = {
             })
           });
         case "GAME_WON":
-          return Object.assign({}, state, {won: true})
+          return Object.assign({}, state, {isWon: true})
         default:
           return state;
       }
