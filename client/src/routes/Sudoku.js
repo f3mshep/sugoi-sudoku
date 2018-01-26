@@ -1,6 +1,7 @@
 import React from 'react'
 import NewSudoku from './NewSudoku'
 import LoadSudoku from './LoadSudoku'
+import GlobalSudoku from '../containers/SudokuGlobal'
 import Home from "./Home"
 import {
   BrowserRouter as Router,
@@ -12,6 +13,7 @@ import {
 
 const Sudoku = () => (
   <div>
+    <SudokuGlobal/>
     <Router>
       <div>
         <Switch>
