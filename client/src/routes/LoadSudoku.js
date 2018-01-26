@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchGame, loadGame, checkGame } from "../actions/thunkage";
 import { withRouter } from "react-router-dom";
+import SudokuGlobal from '../containers/SudokuGlobal'
 import NavBar from '../components/NavBar'
 import LoadButtonContainer from "../containers/LoadButtonContainer"
 
@@ -35,6 +36,7 @@ class LoadSudoku extends Component {
   render() {
     return <div>
       <NavBar value={<LoadButtonContainer/>}/>
+      <SudokuGlobal />
       <SudokuBoard game={this.props.game} />
     </div>;
   }

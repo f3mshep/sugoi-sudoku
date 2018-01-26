@@ -6,6 +6,7 @@ import { fetchGame, loadGame, checkGame } from "../actions/thunkage";
 import { withRouter } from "react-router-dom";
 import NavBar from '../components/NavBar'
 import LoadButtonContainer from "../containers/LoadButtonContainer"
+import SudokuGlobal from '../containers/SudokuGlobal'
 // import * as actions from './actions/thunkage'
 
 class NewSudoku extends Component {
@@ -25,6 +26,7 @@ class NewSudoku extends Component {
   render() {
     return <div>
       <NavBar value={<LoadButtonContainer />} />
+      <SudokuGlobal/>
       <SudokuBoard game={this.props.game}/>
     </div>;
   }

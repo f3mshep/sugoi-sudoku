@@ -9,6 +9,10 @@ export function resetBoard(){
   return {type: "RESET_BOARD"}
 }
 
+export function gameIsWon(){
+  return {type: "GAME_WON"}
+}
+
 export function showSolution(){
   return {type: "SHOW_SOLUTION"}
 }

@@ -1,19 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
+import WinComponent from '../components/WinComponent'
 
 class SudokuGlobal extends React.Component{
   constructor(props){
     super(props)
-    this.state=({
-      gameWon: false
-    })
+  }
+
+  isDeeplyEqual(leftObj, rightObj){
+    JSON.stringify(leftObj) === JSON.stringify(rightObj)
   }
 
   isGameWon(nextProps){
-    if (nextProps.game.current_board === nextProps.game.solution && !nextProps.locked ) {
+    debugger
+    if ( isDeeplyEqual(nextProps.game.current_board, nextProps.game.solution)
+    && !nextProps.locked ) {
+      console.log('checkmate atheists')
       this.setState({gameWon: true})
     }
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.isGameWon(nextProps)
   }
 
   render(){
@@ -25,8 +34,15 @@ class SudokuGlobal extends React.Component{
 const mapStateToProps = (state) => {
   return {
     game: state.game.game,
-    locked: state.game.locked
+    locked: state.game.locked,
+    isWon: state.game.isWon
   }
 }
 
-export default connect(mapStateToProps(SudokuGlobal))
+const mapDispatchToProps = (dispatch) => {
+  return ({actions:
+    {gameIsWon: bindActionCreators(gameIsWon, dispatch)}
+  })
+}
+
+export default connect(mapStateToProps, null)(SudokuGlobal)
