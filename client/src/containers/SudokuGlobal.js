@@ -11,16 +11,22 @@ class SudokuGlobal extends React.Component{
   }
 
   isGameWon(nextProps){
-    if
+    if (nextProps.game.current_board === nextProps.game.solution && !nextProps.locked ) {
+      this.setState({gameWon: true})
+    }
   }
 
   render(){
-    return
+    const winComponent = this.state.gameWon? <WinComponent key={1} /> : null
+    return winComponent
   }
 }
 
 const mapStateToProps = (state) => {
-  return {game: state.game.game}
+  return {
+    game: state.game.game,
+    locked: state.game.locked
+  }
 }
 
 export default connect(mapStateToProps(SudokuGlobal))
