@@ -13,7 +13,6 @@ class SudokuGlobal extends React.Component{
   }
 
   isGameWon(nextProps){
-    debugger
     if ( this.isDeeplyEqual(nextProps.game.current_board, nextProps.game.solution)
     && !nextProps.locked ) {
       console.log('checkmate atheists')

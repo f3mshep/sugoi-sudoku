@@ -46,7 +46,8 @@ class ReactModal extends React.Component{
 
     render(){
       return <div ref={this.setWrapperRef} >
-        <Modal isOpen={this.state.isOpen}><WinComponent/></Modal>
+        <Modal isOpen={this.state.isOpen}
+        ><WinComponent /></Modal>
       </div>;
     }
 }

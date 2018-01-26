@@ -4,7 +4,7 @@ const WinComponent = (props) => (
   <div>
     <div className="modal-header">
       Victory is yours!
-      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+      <button type="button" className="close" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
