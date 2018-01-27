@@ -25,9 +25,7 @@ class ReactModal extends React.Component{
     }
 
     handleClickOutside(event) {
-
-      if (this.wrapperRef && this.state.isOpen && this.wrapperRef.contains(event.target)) {
-        console.log('checkmate athiests')
+      if (this.wrapperRef && this.state.isOpen && this.wrapperRef === event.target) {
         this.closeModal()
       }
     }
@@ -35,7 +33,7 @@ class ReactModal extends React.Component{
     //End
 
     componentWillReceiveProps(nextProps){
-      if (nextProps.isWon) this.openModal()
+      if (nextProps.isWon && this.state.isOpen === false) this.openModal()
     }
 
     closeModal(){
@@ -59,7 +57,7 @@ class ReactModal extends React.Component{
     render(){
       return <div ref={this.setWrapperRef} className={this.state.currentClass}>
         <div  className="modal-dialog">
-          <WinComponent  />
+          <WinComponent closeModal = {this.closeModal.bind(this)} fetchGame={this.props.fetchGame}  />
         </div>
       </div>;
     }

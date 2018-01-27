@@ -1,7 +1,8 @@
 #Essential
 [] Change React app title in title bar
 [] Make collapsed button clickable
-
+[] Move win checker to player input to improve performance
+[] add a backdrop when modal displays
 #Backlog
 [] Make sudoku grid resposive
 [] get rid of collapse function in NavBar

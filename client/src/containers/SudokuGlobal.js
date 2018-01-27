@@ -14,8 +14,7 @@ class SudokuGlobal extends React.Component{
   }
 
   isGameWon(nextProps){
-    if ( this.isDeeplyEqual(nextProps.game.current_board, nextProps.game.solution)
-    && !nextProps.locked ) {
+    if ( this.isDeeplyEqual(nextProps.game.current_board, nextProps.game.solution) && !nextProps.locked) {
       console.log('checkmate atheists')
       this.props.actions.gameIsWon()
     }
@@ -26,7 +25,7 @@ class SudokuGlobal extends React.Component{
   }
 
   render(){
-    return <ReactModal isWon={this.props.isWon} />
+    return <ReactModal fetchGame={this.props.actions.fetchGame.bind(this, this.props.game.difficulty)} isWon={this.props.isWon} />
   }
 }
 
