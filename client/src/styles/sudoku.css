@@ -8,29 +8,23 @@ body {
   background-color: #F2F2F2 !important;
 }
 
-/* Modal Animation
+/* Modal Animation*/
 
-.my-modal-enter {
-    height: 0px;
-    position: absolute;
+.my-overlay {
+  background-color: rgba(82, 82, 97, 0.479);
 }
-
-.my-modal-enter.my-modal-enter-active {
-    height: 150px;
-    transition: height .3s ease;
-}
-
-.my-modal-leave.my-modal-leave-active {
-    height: 0px;
-    transition: height .3s ease;
-} */
 
 .force-block {
   display: block !important;
 }
 
 .modal-dialog {
-  z-index: 2100;
+  z-index: 2001;
+}
+
+.modal-content {
+  opacity: 1 !important;
+  z-index: 2500 !important;
 }
 
 /* Input Cell Animation */

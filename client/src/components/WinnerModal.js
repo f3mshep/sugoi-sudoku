@@ -49,9 +49,9 @@ class WinnerModal extends React.Component{
     openModal(){
       const that = this
       this.setState({isOpen: true})
-      this.setState({currentClass: "modal fade force-block"})
+      this.setState({ currentClass: "modal fade my-overlay force-block"})
       setTimeout(() => {
-        that.setState({currentClass: "modal show fade force-block"})
+        that.setState({ currentClass: "modal show my-overlay fade force-block"})
       }, 10);
     }
 
