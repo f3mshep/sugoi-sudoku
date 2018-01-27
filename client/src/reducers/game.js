@@ -28,7 +28,7 @@ export default function gameReducer(state = {
     {
       switch (action.type) {
         case "LOADING_GAME":
-          return Object.assign({}, state, {loading: true, locked: true, isWon: false}, {game: INITIAL_GAME});
+          return Object.assign({}, state, {loading: true, locked: false, isWon: false}, {game: INITIAL_GAME});
         case "FETCH_NEW_GAME":
           return Object.assign({}, state, { game: action.payload }, { loading: false, isWon: false });
         case "UPDATE_BOARD":
@@ -44,7 +44,7 @@ export default function gameReducer(state = {
         case "LIST_GAMES":
           return Object.assign({}, state, { savedGames: action.payload }, { loading: false });
         case "LOAD_GAME":
-          return Object.assign({}, state, { loading: false, locked: false, isWon: false }, { game: Object.assign({}, action.payload) });
+          return Object.assign({}, state, { loading: false, isWon: false }, { game: Object.assign({}, action.payload) });
         case "SAVE_GAME":
           return Object.assign({}, state, { loading: false }, { game: Object.assign(
                 {},

@@ -3,7 +3,7 @@ import UserInputCell from './UserInputCell'
 import ClueCell from '../components/ClueCell'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeBoard } from '../actions/input'
+import { changeBoard, gameIsWon } from '../actions/input'
 import { withRouter } from "react-router-dom";
 
 
@@ -18,6 +18,16 @@ class CellLogic extends React.Component {
     this.state = {
       square: this.props.square
     };
+  }
+
+  isDeeplyEqual(leftObj, rightObj) {
+    return JSON.stringify(leftObj) === JSON.stringify(rightObj)
+  }
+
+  isGameWon(current_board, solution) {
+    if (this.isDeeplyEqual(current_board, solution)) {
+      this.props.actions.gameIsWon()
+    }
   }
 
   findindexOutter() {
@@ -44,12 +54,13 @@ class CellLogic extends React.Component {
     //value of the cell
     let newBoard = JSON.parse(JSON.stringify(this.props.game.current_board))
     const newValue = value || parseInt(event.target.innerHTML, 10)
-    this.props.actions.changeBoard(
+    const boardAction = this.props.actions.changeBoard(
       this.outterIndex,
       this.innerIndex,
       newValue,
       newBoard
     );
+    this.isGameWon(boardAction.current_board, this.props.game.solution)
   }
 
   render() {
@@ -76,7 +87,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators({changeBoard}, dispatch) };
+  return { actions:
+    {
+      changeBoard: bindActionCreators(changeBoard, dispatch),
+      gameIsWon: bindActionCreators(gameIsWon, dispatch)
+    }
+  };
 }
 
 export default  withRouter(connect(mapStateToProps, mapDispatchToProps)(CellLogic))

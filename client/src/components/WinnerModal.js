@@ -1,8 +1,9 @@
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import React from 'react'
 import WinComponent from './WinComponent'
+import { connect } from 'react-redux'
 
-class ReactModal extends React.Component{
+class WinnerModal extends React.Component{
   constructor(props){
       super(props)
       this.state = { isOpen: false, currentClass: "modal fade" }
@@ -63,4 +64,8 @@ class ReactModal extends React.Component{
     }
 }
 
-export default ReactModal
+const mapStateToProps = (state) => {
+  return {isWon: state.game.isWon}
+}
+
+export default connect(mapStateToProps,null)(WinnerModal)
