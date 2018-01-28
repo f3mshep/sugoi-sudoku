@@ -1,4 +1,4 @@
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 import React from 'react'
 import WinComponent from './WinComponent'
 import { connect } from 'react-redux'
@@ -55,10 +55,16 @@ class WinnerModal extends React.Component{
       }, 10);
     }
 
+    fetchAndClose(){
+      const that = this
+      this.props.fetchGame()
+      .then( ()=> that.closeModal())
+    }
+
     render(){
       return <div ref={this.setWrapperRef} className={this.state.currentClass}>
         <div  className="modal-dialog">
-          <WinComponent closeModal = {this.closeModal.bind(this)} fetchGame={this.props.fetchGame}  />
+          <WinComponent closeModal = {this.closeModal.bind(this)} fetchGame={this.fetchAndClose.bind(this)}  />
         </div>
       </div>;
     }

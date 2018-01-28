@@ -15,7 +15,6 @@ class LoadSudoku extends Component {
     //code was this.props.game.solution === null
     const props = nextProps || this.props
     if (props.game.solution.length < 1) {
-      debugger
       props.actions.checkGame(props.game);
     }
   }
