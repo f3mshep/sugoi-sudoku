@@ -5,17 +5,17 @@ Sudoku Now is a web application for the sudoku puzzle game. Users can play a uni
 ## Installation
 
 
-To set up a local instance of this web app, clone this repository. Please ensure you have PostGres working properly on your computer. In the root of the application, run the following commands:
+To set up a local instance of this web app, clone this repository. Please ensure you have PostGres working properly on your computer. In the root of the application, run the following commands to set up the PostGres database:
 
 ```
 rails db:create
 ```
 
-and 
-
 ```
 rake db:migrate
 ```
+
+```rake db:seed```
 
 After setting up the database, change directory to the 'client' folder, which contains the react application. Run 
 
